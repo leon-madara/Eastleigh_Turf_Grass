@@ -8,11 +8,13 @@
         "build": "vite build",
         "preview": "vite preview",
         "lint": "eslint . --ext .js",
-        "format": "prettier -w ."
+        "format": "prettier -w .",
+        "deploy": "npm run build && gh-pages -d dist"
     },
     "devDependencies": {
-        "vite": "^4.4.0",
         "eslint": "^8.44.0",
-        "prettier": "^2.8.8"
+        "gh-pages": "^6.3.0",
+        "prettier": "^3.6.2",
+        "vite": "^4.4.0"
     }
 }
