@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Turf Grass Project</title>
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/src/css/base.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+    <link rel="stylesheet" href="/src/css/header.css">
+    <link rel="stylesheet" href="/src/css/footer.css">
+    <link rel="stylesheet" href="/src/css/about.css">
+    <link rel="stylesheet" href="/src/css/mobile-nav.css">
+    <link rel="stylesheet" href="/src/css/toast.css">
+    <link rel="stylesheet" href="/src/css/components/broker-login.css">
+</head>
+
+<body class="about-page">
+    <!-- Header -->
+    <header class="header" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Eastleigh Turf Grass">
+                <img src="/src/assets/images/icons/mainLogo.png" alt="Eastleigh Turf Grass Logo" />
+            </a>
+
+            <nav class="nav" aria-label="Primary">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="products.html" class="nav-link">Products</a>
+                <a href="about.html" class="nav-link is-active">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Hamburger Menu Button (replaces logo on mobile) -->
+            <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="header-cta">
+                <a href="products.html#cart" id="cartIconBtn" class="cart-btn" aria-label="Shopping Cart">
+                    <svg viewBox="0 0 640 640" class="cart-icon" aria-hidden="true">
+                        <path d="M24 48C10.7 48 0 58.7 0 72C0 85.3 10.7 96 24 96L69.3 96C73.2 96 76.5 98.8 77.2 102.6L129.3 388.9C135.5 423.1 165.3 448 200.1 448L456 448C469.3 448 480 437.3 480 424C480 410.7 469.3 400 456 400L200.1 400C188.5 400 178.6 391.7 176.5 380.3L171.4 352L475 352C505.8 352 532.2 330.1 537.9 299.8L568.9 133.9C572.6 114.2 557.5 96 537.4 96L124.7 96L124.3 94C119.5 67.4 96.3 48 69.2 48L24 48zM208 576C234.5 576 256 554.5 256 528C256 501.5 234.5 480 208 480C181.5 480 160 501.5 160 528C160 554.5 181.5 576 208 576zM432 576C458.5 576 480 554.5 480 528C480 501.5 458.5 480 432 480C405.5 480 384 501.5 384 528C384 554.5 405.5 576 432 576z" />
+                    </svg>
+                    <span id="cartCount" class="cart-count">0</span>
+                </a>
+                <a href="#" class="dealer-login-btn icon-only" id="dealerLoginBtn" aria-label="Dealer Login"><i class="fa-solid fa-right-to-bracket"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="about.html" class="nav-link is-active">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+
+    <main>
+        <!-- Hero Section with Glassmorphism -->
+        <section class="about-hero">
+            <div class="hero-background">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Endless<br> <span class="about-gradient-title-sub">Possibilities</span></h1>
+                    <p class="hero-subtitle">Premium artificial turf solutions for residential, sports, and commercial
+                        applications across Kenya.</p>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Product Lines</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">UV Protected</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">15-45mm</span>
+                            <span class="stat-label">Pile Heights</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section class="about-story">
+            <div class="container">
+                <div class="story-grid">
+                    <div class="story-content">
+                        <h2 class="section-title">Our Story</h2>
+                        <p class="story-text">We combine high-performance materials with expert installation to deliver
+                            beautiful, durable turf that stands the test of time. Our commitment to quality and
+                            innovation has made us the leading artificial turf provider in Kenya.</p>
+
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h3>UV-Stable Materials</h3>
+                                <p>Child & pet-safe materials that withstand harsh weather conditions</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-water"></i>
+                                </div>
+                                <h3>Drainage-First Design</h3>
+                                <p>Expert installation with superior drainage systems</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-headset"></i>
+                                </div>
+                                <h3>Dedicated Support</h3>
+                                <p>Comprehensive after-care and customer support</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="story-visual-title">Quick Facts</h3>
+                    <div class="story-visual">
+                        <div class="visual-card">
+                            <div class="facts-list">
+                                <div class="fact-item">
+                                    <span class="fact-icon">📏</span>
+                                    <div class="fact-content">
+                                        <strong>15–45mm</strong>
+                                        <span>Pile Heights</span>
+                                    </div>
+                                </div>
+                                <div class="fact-item">
+                                    <span class="fact-icon">🏷️</span>
+                                    <div class="fact-content">
+                                        <strong>5 Product Lines</strong>
+                                        <span>Premium Selection</span>
+                                    </div>
+                                </div>
+                                <div class="fact-item">
+                                    <span class="fact-icon">☀️</span>
+                                    <div class="fact-content">
+                                        <strong>100% UV Protection</strong>
+                                        <span>Long-lasting Quality</span>
+                                    </div>
+                                </div>
+                                <div class="fact-item">
+                                    <span class="fact-icon">🌱</span>
+                                    <div class="fact-content">
+                                        <strong>Eco-Friendly</strong>
+                                        <span>Sustainable Solutions</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Application Cards Section -->
+        <section class="application-cards">
+            <div class="application-cards-container">
+                <div class="application-card residential">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <span class="application-label">Application</span>
+                    </div>
+                    <h3 class="card-title">Residential Landscaping</h3>
+                    <p class="card-description">Transform your home's outdoor space with premium artificial turf that
+                        looks and feels like natural grass.</p>
+                    <ul class="card-features">
+                        <li>Pet-friendly</li>
+                        <li>Low maintenance</li>
+                        <li>All-weather durability</li>
+                        <li>UV resistant</li>
+                    </ul>
+                    <a href="products.html" class="learn-more-btn">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="application-card commercial">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <span class="application-label">Application</span>
+                    </div>
+                    <h3 class="card-title">Commercial Properties</h3>
+                    <p class="card-description">Professional-grade artificial turf solutions for offices, hotels, and
+                        retail spaces.</p>
+                    <ul class="card-features">
+                        <li>High traffic resistance</li>
+                        <li>Professional appearance</li>
+                        <li>Cost-effective</li>
+                        <li>Year-round green</li>
+                    </ul>
+                    <a href="products.html" class="learn-more-btn">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="application-card sports">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-futbol"></i>
+                        </div>
+                        <span class="application-label">Application</span>
+                    </div>
+                    <h3 class="card-title">Sports & Recreation</h3>
+                    <p class="card-description">Performance-engineered surfaces for sports facilities, playgrounds, and
+                        recreational areas.</p>
+                    <ul class="card-features">
+                        <li>Safety certified</li>
+                        <li>Performance optimized</li>
+                        <li>Weather resistant</li>
+                        <li>Professional grade</li>
+                    </ul>
+                    <a href="products.html" class="learn-more-btn">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="ready-to-transform">
+            <div class="container">
+                <div class="ready-to-transform-content">
+                    <h2 class="transform-title">Ready to Transform Your Space?</h2>
+                    <p class="ready-to-transform-text">We're here to help you create the perfect outdoor space. Whether
+                        you're looking to enhance your home, commercial property, or sports facility, we have the
+                        perfect solution for you.</p>
+
+
+                    <div class="ready-to-transform-btns">
+                        <a href="contact.html" class="ready-to-transform-btn free-quote-btn">
+                            Get Free Quote
+                        </a>
+                        <a href="contact.html" class="ready-to-transform-btn contact-us-btn">
+                            Contact Us
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> Eastleigh Turfgrass. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+    <!-- Modal mount -->
+    <div id="modalMount"></div>
+    <div id="cartMount"></div>
+
+    <!-- Single JavaScript entry point -->
+    <script type="module" src="/src/pages/about/main.js"></script>
+
+    <script>
+        // Enhanced JavaScript for interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const hamburgerMenu = document.getElementById('hamburgerMenu');
+            const mobileNav = document.getElementById('mobileNav');
+            let mobileNavOpen = false;
+
+            hamburgerMenu.addEventListener('click', function() {
+                mobileNavOpen = !mobileNavOpen;
+                mobileNav.style.display = mobileNavOpen ? 'flex' : 'none';
+
+                // Animate hamburger
+                const spans = hamburgerMenu.querySelectorAll('span');
+                if (mobileNavOpen) {
+                    spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    spans[1].style.opacity = '0';
+                    spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                } else {
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (mobileNavOpen && !hamburgerMenu.contains(e.target) && !mobileNav.contains(e.target)) {
+                    mobileNavOpen = false;
+                    mobileNav.style.display = 'none';
+                    const spans = hamburgerMenu.querySelectorAll('span');
+                    spans[0].style.transform = 'none';
+                    spans[1].style.opacity = '1';
+                    spans[2].style.transform = 'none';
+                }
+            });
+
+            // Header scroll effect
+            const header = document.getElementById('navbar');
+            let lastScrollTop = 0;
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop && scrollTop > 100) {
+                    // Scrolling down
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    // Scrolling up
+                    header.style.transform = 'translateY(0)';
+                }
+
+                // Add backdrop blur when scrolled
+                if (scrollTop > 50) {
+                    header.style.background = 'var(--surface-medium)';
+                    header.style.boxShadow = 'var(--shadow-soft)';
+                } else {
+                    header.style.background = 'var(--surface-light)';
+                    header.style.boxShadow = 'none';
+                }
+                lastScrollTop = scrollTop;
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe animated elements
+            const animatedElements = document.querySelectorAll('.feature-card, .fact-item, .value-item, .stat-item');
+            animatedElements.forEach(el => {
+                el.style.animationPlayState = 'paused';
+                observer.observe(el);
+            });
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Update year in footer
+            const yearElement = document.getElementById('year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+
+            // Parallax effect for hero background
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const heroBackground = document.querySelector('.hero-background');
+                if (heroBackground) {
+                    const speed = scrolled * 0.5;
+                    heroBackground.style.transform = `translateY(${speed}px)`;
+                }
+            });
+
+            // Add loading states and error handling
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.addEventListener('load', function() {
+                    this.style.opacity = '1';
+                });
+                img.addEventListener('error', function() {
+                    this.style.display = 'none';
+                });
+            });
+
+            // Toast notification system - now using unified service
+            function showToast(title, message, type = 'info') {
+                if (window.ToastService) {
+                    window.ToastService.show(message || title, type);
+                }
+            }
+
+            // Performance optimization: Lazy loading for background images
+            const lazyBackgrounds = document.querySelectorAll('[data-bg]');
+            const bgObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.style.backgroundImage = `url(${img.dataset.bg})`;
+                        img.removeAttribute('data-bg');
+                        bgObserver.unobserve(img);
+                    }
+                });
+            });
+            lazyBackgrounds.forEach(bg => bgObserver.observe(bg));
+        });
+
+        // Service Worker registration for PWA capabilities
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').catch(function(error) {
+                console.log('Service Worker registration failed: ', error);
+            });
+        }
+    </script>
+    <!-- Carousel script removed - using simple grid layout instead -->
+
+
+    <script type="module" src="/src/pages/about/main.js"></script>
+</body>
+
+</html>

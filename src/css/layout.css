@@ -1,0 +1,46 @@
+/* =========================================
+   LAYOUT • Container, section rhythm, utilities
+========================================= */
+
+:root {
+    --header-h: 64px;
+}
+
+body {
+    padding-top: var(--header-h);
+}
+
+/* prevent hero overlap under fixed header */
+
+.container {
+    width: min(1200px, 100%);
+    margin-inline: auto;
+    padding-inline: 16px;
+}
+
+/* Generic section spacing */
+section {
+    padding-block: clamp(1.25rem, 3vw, 2.25rem);
+}
+
+/* Simple grids */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Header show/hide utility (used by sticky behavior if needed) */
+.header-visible {
+    transform: translateY(0);
+}
+
+.header-hidden {
+    transform: translateY(-100%);
+}

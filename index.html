@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turf Grass Project - Home</title>
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/src/css/base.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+    <link rel="stylesheet" href="/src/css/header.css">
+    <link rel="stylesheet" href="/src/css/footer.css">
+    <link rel="stylesheet" href="/src/css/home.css">
+    <link rel="stylesheet" href="/src/css/hero.css">
+    <link rel="stylesheet" href="/src/css/heroSlider.css">
+    <link rel="stylesheet" href="/src/css/testimonials.css">
+    <link rel="stylesheet" href="/src/css/mobile-nav.css">
+    <link rel="stylesheet" href="/src/css/toast.css">
+    <link rel="stylesheet" href="/src/css/components/broker-login.css">
+</head>
+
+<body class="home-page">
+    <!-- Header -->
+    <header class="header" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Eastleigh Turf Grass">
+                <img src="/src/assets/images/icons/mainLogo.png" alt="Eastleigh Turf Grass Logo" />
+            </a>
+
+            <nav class="nav" aria-label="Primary">
+                <a href="index.html" class="nav-link is-active">Home</a>
+                <a href="products.html" class="nav-link">Products</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Hamburger Menu Button (replaces logo on mobile) -->
+            <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="header-cta">
+                <a href="products.html#cart" id="cartIconBtn" class="cart-btn" aria-label="Shopping Cart">
+                    <svg viewBox="0 0 640 640" class="cart-icon" aria-hidden="true">
+                        <path d="M24 48C10.7 48 0 58.7 0 72C0 85.3 10.7 96 24 96L69.3 96C73.2 96 76.5 98.8 77.2 102.6L129.3 388.9C135.5 423.1 165.3 448 200.1 448L456 448C469.3 448 480 437.3 480 424C480 410.7 469.3 400 456 400L200.1 400C188.5 400 178.6 391.7 176.5 380.3L171.4 352L475 352C505.8 352 532.2 330.1 537.9 299.8L568.9 133.9C572.6 114.2 557.5 96 537.4 96L124.7 96L124.3 94C119.5 67.4 96.3 48 69.2 48L24 48zM208 576C234.5 576 256 554.5 256 528C256 501.5 234.5 480 208 480C181.5 480 160 501.5 160 528C160 554.5 181.5 576 208 576zM432 576C458.5 576 480 554.5 480 528C480 501.5 458.5 480 432 480C405.5 480 384 501.5 384 528C384 554.5 405.5 576 432 576z" />
+                    </svg>
+                    <span id="cartCount" class="cart-count">0</span>
+                </a>
+                <a href="#" class="dealer-login-btn" id="dealerLoginBtn"><i class="fa-solid fa-right-to-bracket"></i>Supplier Login</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+        <a href="index.html" class="nav-link is-active">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+
+    <main>
+        <!-- Hero Section (Before/After split background with floating chair) -->
+        <section class="hero">
+            <!-- Split Background -->
+            <div class="hero-bg">
+                <figure class="ba" role="img" aria-labelledby="ba-title ba-desc">
+                    <!-- Left: BEFORE image -->
+                    <img class="ba-img ba-before" src="/src/assets/images/hero/before.png" alt="Backyard with patchy, yellowed grass (before)" loading="eager" decoding="async" />
+
+                    <!-- Right: AFTER image -->
+                    <img class="ba-img ba-after" src="/src/assets/images/hero/after.png" alt="Backyard with lush green turf grass (after)" loading="eager" decoding="async" />
+
+                    <!-- Floating chair image -->
+                    <img class="ba-chair" src="/src/assets/images/hero/chair.png" alt="" aria-hidden="true" />
+
+                    <!-- Divider/Handle -->
+                    <div class="ba-handle" aria-hidden="true">
+                        <span class="ba-grip"></span>
+                    </div>
+
+                    <!-- Accessible label/description -->
+                    <figcaption class="sr-only">
+                        <span id="ba-title">Lawn transformation comparison</span>
+                        <span id="ba-desc">Slide to compare before and after turf installation.</span>
+                    </figcaption>
+
+                    <!-- Accessible range input -->
+                    <input type="range" class="ba-range" min="0" max="100" value="50" aria-label="Reveal after image" />
+                </figure>
+            </div>
+
+            <!-- Content -->
+            <div class="hero-content">
+                <div class="hero-inner">
+                    <h1 class="hero-title">
+                        ARTIFICIAL TURF
+                        <span class="hero-title-accent">CLEAN. GREEN. TIMELESS.</span>
+                    </h1>
+
+                    <div class="hero-buttons">
+                        <button class="btn btn-hero">
+                            SHOP NOW
+                            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14" />
+                                <path d="M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+
+                        <span class="center-spacer" aria-hidden="true"></span> <!-- 4rem gap centered on divider -->
+
+                        <button class="btn btn-outline btn-transparent">
+                            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="5,3 19,12 5,21 5,3" />
+                            </svg>
+                            LEARN MORE
+                        </button>
+                    </div>
+
+
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">5</div>
+                            <div class="stat-label">Product Lines</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">15–45mm</div>
+                            <div class="stat-label">Pile Heights</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">UV Protected</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <noscript>
+            <style>
+                /* Fallback: show after image fully when JS is disabled */
+                .ba .ba-before {
+                    display: none !important;
+                }
+            </style>
+        </noscript>
+
+        <!-- Product Showcase Section -->
+        <section class="product-showcase">
+            <div class="container">
+                <!-- Header Section -->
+                <div class="product-showcase-header">
+                    <h1>Our Product Range</h1>
+                    <h2>Six Premium Turf Solutions</h2>
+                    <p>
+                        From playgrounds to luxury resorts, discover the perfect artificial turf solution tailored to
+                        your
+                        specific needs and applications.
+                    </p>
+                </div>
+
+                <!-- Product Cards Grid -->
+                <div class="product-cards-grid">
+                    <!-- Product 1 - Premium Turf 15mm -->
+                    <div class="product-card">
+                        <div class="product-content">
+                            <div class="product-image">
+                                <img src="/src/assets/images/Homepage Products/hero image.png" alt="Premium Turf 15mm">
+                            </div>
+                            <div class="product-text">
+                                <h1>Premium Turf 15mm</h1>
+                                <p>
+                                    Premium Turf 15mm offers natural appearance with UV resistance and easy maintenance,
+                                    perfect for residential applications with light traffic.
+                                </p>
+                                <h2>Use Cases</h2>
+                                <span class="key-features-label">Key Features</span>
+                                <ul>
+                                    <li><span>Residential</span></li>
+                                    <li><span>Light Traffic</span></li>
+                                    <li><span>Decorative</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 - Sports Turf 20mm -->
+                    <div class="product-card">
+                        <div class="product-content reverse">
+                            <div class="product-text">
+                                <h1>Sports Turf 20mm</h1>
+                                <p>
+                                    Sports Turf 20mm provides enhanced durability and superior bounce, designed for
+                                    sports facilities, playgrounds, and schools.
+                                </p>
+                                <h2>Use Cases</h2>
+                                <span class="key-features-label">Key Features</span>
+                                <ul>
+                                    <li><span>Sports</span></li>
+                                    <li><span>Playgrounds</span></li>
+                                    <li><span>Schools</span></li>
+                                </ul>
+                            </div>
+                            <div class="product-image">
+                                <img src="/src/assets/images/Homepage Products/couple.png" alt="Sports Turf 20mm">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 - Luxury Turf 30mm -->
+                    <div class="product-card">
+                        <div class="product-content">
+                            <div class="product-image">
+                                <img src="/src/assets/images/Homepage Products/children.png" alt="Luxury Turf 30mm">
+                            </div>
+                            <div class="product-text">
+                                <h1>Luxury Turf 30mm</h1>
+                                <p>
+                                    Luxury Turf 30mm delivers premium quality with realistic feel and excellent
+                                    drainage, ideal for premium residential and commercial applications.
+                                </p>
+                                <h2>Use Cases</h2>
+                                <span class="key-features-label">Key Features</span>
+                                <ul>
+                                    <li><span>Premium Residential</span></li>
+                                    <li><span>Commercial</span></li>
+                                    <li><span>Hospitality</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 - Elite Turf 35mm -->
+                    <div class="product-card">
+                        <div class="product-content reverse">
+                            <div class="product-text">
+                                <h1>Elite Turf 35mm</h1>
+                                <p>
+                                    Elite Turf 35mm offers maximum comfort and professional grade performance, perfect
+                                    for high-end commercial and sports facilities.
+                                </p>
+                                <h2>Use Cases</h2>
+                                <span class="key-features-label">Key Features</span>
+                                <ul>
+                                    <li><span>High-end Commercial</span></li>
+                                    <li><span>Sports Facilities</span></li>
+                                    <li><span>Luxury Homes</span></li>
+                                </ul>
+                            </div>
+                            <div class="product-image">
+                                <img src="/src/assets/images/Homepage Products/idea 2.png" alt="Elite Turf 35mm">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 - Professional Grade 40mm -->
+                    <div class="product-card">
+                        <div class="product-content">
+                            <div class="product-image">
+                                <img src="/src/assets/images/Homepage Products/gym.png" alt="Professional Grade 40mm">
+                            </div>
+                            <div class="product-text">
+                                <h1>Professional Grade 40mm</h1>
+                                <p>
+                                    Professional Grade 40mm provides maximum durability and superior performance,
+                                    designed for professional sports and championship quality applications.
+                                </p>
+                                <h2>Use Cases</h2>
+                                <span class="key-features-label">Key Features</span>
+                                <ul>
+                                    <li><span>Professional Sports</span></li>
+                                    <li><span>Commercial</span></li>
+                                    <li><span>Premium</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 - Championship Turf 45mm -->
+                    <div class="product-card">
+                        <div class="product-content reverse">
+                            <div class="product-text">
+                                <h1>Championship Turf 45mm</h1>
+                                <p>
+                                    Championship Turf 45mm represents the ultimate in performance and quality, designed
+                                    for championship-level sports and elite facilities.
+                                </p>
+                                <h2>Use Cases</h2>
+                                <span class="key-features-label">Key Features</span>
+                                <ul>
+                                    <li><span>Championship</span></li>
+                                    <li><span>Premium Sports</span></li>
+                                    <li><span>Elite Facilities</span></li>
+                                </ul>
+                            </div>
+                            <div class="product-image">
+                                <img src="/src/assets/images/Homepage Products/hero image.png" alt="Championship Turf 45mm">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- About Our Premium Turf Section -->
+        <section class="about-premium-turf">
+            <div class="container">
+                <h2>About Our Premium Turf</h2>
+                <p>
+                    Our artificial turf solutions provide the perfect blend of durability, aesthetics, and
+                    functionality.
+                    Each product line is carefully designed to meet specific application requirements while maintaining
+                    the highest quality standards.
+                </p>
+
+                <div class="features-grid">
+                    <div class="feature">
+                        <h3>UV Protection</h3>
+                        <p>100% UV stabilized fibers ensure long-lasting color retention.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Drainage System</h3>
+                        <p>Advanced drainage technology prevents water accumulation.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Eco-Friendly</h3>
+                        <p>Made from recyclable materials with minimal environmental impact.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Easy Maintenance</h3>
+                        <p>Low maintenance requirements save time and money.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="testimonials-header">
+                    <h2 class="testimonials-title">What Our Clients Say</h2>
+                    <div class="rating-summary">
+                        <div class="stars">★★★★★</div>
+                        <span class="rating-text">4.7 out of 5 stars</span>
+                        <span class="review-count">from 150+ satisfied customers</span>
+                    </div>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"Eastleigh Turf Grass transformed our backyard into a beautiful,
+                                low-maintenance paradise. The quality is exceptional and the installation was
+                                professional. Highly recommended!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4 class="author-name">Sarah Johnson</h4>
+                                    <p class="author-location">Nairobi, Kenya</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"We installed their artificial turf at our sports facility and
+                                the results are outstanding. The players love it, and maintenance costs have dropped
+                                significantly."</p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4 class="author-name">David Mwangi</h4>
+                                    <p class="author-location">Mombasa, Kenya</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"The team at Eastleigh Turf Grass was incredibly professional
+                                from start to finish. They helped us choose the perfect turf for our commercial property
+                                and the installation was flawless."</p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4 class="author-name">Grace Wanjiku</h4>
+                                    <p class="author-location">Kisumu, Kenya</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"After struggling with natural grass maintenance for years,
+                                switching to artificial turf was the best decision. Our garden looks perfect year-round
+                                with minimal effort."</p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4 class="author-name">Michael Ochieng</h4>
+                                    <p class="author-location">Eldoret, Kenya</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"The quality of their turf products is unmatched. We've had our
+                                installation for over 2 years and it still looks as good as new. Excellent value for
+                                money!"</p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4 class="author-name">Amina Hassan</h4>
+                                    <p class="author-location">Nakuru, Kenya</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-stars">★★★★★</div>
+                            <p class="testimonial-text">"Professional service, high-quality materials, and excellent
+                                after-sales support. Eastleigh Turf Grass exceeded all our expectations for our hotel's
+                                outdoor area."</p>
+                            <div class="testimonial-author">
+                                <div class="author-info">
+                                    <h4 class="author-name">Robert Kimani</h4>
+                                    <p class="author-location">Thika, Kenya</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- More homepage content blocks here -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> Eastleigh Turfgrass. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+    <div id="modalMount"></div>
+    <!-- <div id="cartMount"></div> -->
+
+    <script type="module" src="/src/pages/home/main.js"></script>
+</body>
+
+</html>

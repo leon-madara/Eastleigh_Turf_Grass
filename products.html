@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products - Turf Grass Project</title>
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="/src/css/base.css">
+    <link rel="stylesheet" href="/src/css/layout.css">
+    <link rel="stylesheet" href="/src/css/header.css">
+    <link rel="stylesheet" href="/src/css/footer.css">
+    <link rel="stylesheet" href="/src/css/products.css">
+    <link rel="stylesheet" href="/src/css/cart.css">
+    <link rel="stylesheet" href="/src/css/broker.css">
+    <link rel="stylesheet" href="/src/css/mobile-nav.css">
+    <link rel="stylesheet" href="/src/css/toast.css">
+    <link rel="stylesheet" href="/src/css/components/checkout-modal.css">
+    <link rel="stylesheet" href="/src/css/components/broker-login.css">
+</head>
+
+<body class="products-page">
+    <!-- Header -->
+    <header class="header" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo" aria-label="Eastleigh Turf Grass">
+                <img src="/src/assets/images/icons/mainLogo.png" alt="Eastleigh Turf Grass Logo" />
+            </a>
+
+            <nav class="nav" aria-label="Primary">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="products.html" class="nav-link is-active">Products</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Hamburger Menu Button (replaces logo on mobile) -->
+            <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="header-cta">
+                <a href="#cart" id="cartIconBtn" class="cart-btn" aria-label="Shopping Cart">
+                    <i class="fas fa-shopping-cart cart-icon"></i>
+                    <span id="cartCount" class="cart-count">0</span>
+                </a>
+                <a href="#" class="dealer-login-btn icon-only" id="dealerLoginBtn" aria-label="Dealer Login"><i class="fa-solid fa-right-to-bracket"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link is-active">Products</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+
+    <!-- Intro -->
+    <section class="products-hero">
+        <div class="container">
+            <h5>Products</h5>
+            <h1>Premium Artificial Turf Collection</h1>
+            <p>Choose from our comprehensive range of artificial turf solutions, each designed for specific applications
+                and environments.</p>
+        </div>
+    </section>
+
+    <main class="products-wrapper">
+        <div class="container">
+            <!-- Cart Section - Below title, above products -->
+            <div class="cart-section" id="cart">
+                <div class="cart-panel">
+                    <div class="cart-header">
+                        <h2><i class="fas fa-shopping-cart"></i> Your Cart</h2>
+                        <span class="cart-count-badge" id="cartCountBadge">0</span>
+                    </div>
+                    <div id="cartItems" class="cart-items">
+                        <div class="empty-cart">
+                            <i class="fas fa-shopping-basket"></i>
+                            <p>Your cart is empty</p>
+                            <span>Add some products to get started</span>
+                        </div>
+                    </div>
+                    <div class="cart-summary" id="cartSummary" style="display: none;">
+                        <div class="cart-total">
+                            <span>Total:</span>
+                            <span id="cartTotal">KES 0</span>
+                        </div>
+                        <div class="cart-discounts">
+                            <button id="applyDiscountBtn" class="btn-discount">
+                                <i class="fas fa-tag"></i> Apply Discount
+                            </button>
+                            <button id="enterCouponBtn" class="btn-coupon">
+                                <i class="fas fa-ticket-alt"></i> Enter Coupon
+                            </button>
+                        </div>
+                        <div class="cart-actions">
+                            <button id="clearCartBtn" class="btn-secondary">
+                                <i class="fas fa-trash"></i> Clear Cart
+                            </button>
+                            <button id="submitOrderBtn" class="btn-primary">
+                                <i class="fas fa-check"></i> Checkout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-section">
+                <div id="productsGrid" class="products-grid" aria-live="polite"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Cart Modal -->
+    <!-- (Removed: modal only appears on non-products pages) -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="year"></span> Eastleigh Turfgrass. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+
+    <!-- Modal mount -->
+    <div id="modalMount"></div>
+    <div id="cartMount"></div>
+
+    <!-- Single JavaScript entry point -->
+    <script type="module" src="/src/js/pages/products.js"></script>
+</body>
+
+</html>

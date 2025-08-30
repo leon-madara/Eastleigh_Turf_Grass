@@ -1,0 +1,256 @@
+/* Cart Icon Pop-Up Styles - Complete Fixed Version */
+
+/* Base popup styles - visible state */
+.cart-popup {
+    /* CRITICAL: Fixed positioning for proper overlay */
+    position: fixed !important;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2000;
+    background: red !important;
+    opacity: 1 !important;
+    display: flex !important;
+    visibility: visible !important;
+
+    /* Visual styling */
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    /* Size constraints */
+    width: 95vw;
+    max-width: 420px;
+    max-height: 85vh;
+    min-height: 200px;
+
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    /* Scrolling */
+    overflow: hidden;
+
+    /* Animations */
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Ensure it appears above everything */
+    pointer-events: all;
+}
+
+/* Hidden state - IMPORTANT: Higher specificity */
+.cart-popup.hidden {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translate(-50%, -50%) scale(0.95) !important;
+    pointer-events: none !important;
+}
+
+/* Optional: Add backdrop blur effect */
+.cart-popup::backdrop {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+}
+
+/* Close button styling */
+.cart-popup-close {
+    /* Positioning */
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2001;
+
+    /* Reset button styles */
+    background: none;
+    border: none;
+    padding: 8px;
+    margin: 0;
+
+    /* Visual styling */
+    font-size: 24px;
+    line-height: 1;
+    color: #666;
+    cursor: pointer;
+    border-radius: 8px;
+
+    /* Size */
+    width: 40px;
+    height: 40px;
+
+    /* Center the × symbol */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Transitions */
+    transition: all 0.2s ease;
+
+    /* Ensure it's clickable */
+    pointer-events: all;
+}
+
+.cart-popup-close:hover {
+    background: rgba(0, 0, 0, 0.08);
+    color: #333;
+    transform: scale(1.1);
+}
+
+.cart-popup-close:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+.cart-popup-close:active {
+    transform: scale(0.95);
+}
+
+/* Title styling */
+#cartPopUpTitle {
+    /* Spacing */
+    margin: 0;
+    padding: 24px 20px 16px 20px;
+
+    /* Typography */
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #1a1a1a;
+    text-align: center;
+
+    /* Prevent text selection */
+    user-select: none;
+
+    /* Account for close button */
+    padding-right: 60px;
+}
+
+/* Content area styling */
+.cart-popup-content {
+    /* Layout */
+    flex: 1;
+    padding: 0 24px 24px 24px;
+
+    /* Scrolling */
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    /* Custom scrollbar (webkit browsers) */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.cart-popup-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cart-popup-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.cart-popup-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.cart-popup-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Empty cart message */
+.cart-popup-content p {
+    margin: 0;
+    padding: 40px 0;
+    text-align: center;
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Optional: Add backdrop for modal effect */
+.cart-popup-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.25s ease;
+}
+
+.cart-popup-backdrop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Responsive adjustments - Desktop only */
+@media (min-width: 481px) {
+    .cart-popup {
+        width: 95vw;
+        max-width: 420px;
+    }
+}
+
+/* Hide cart popup on mobile */
+@media (max-width: 768px) {
+    .cart-popup {
+        display: none !important;
+    }
+}
+
+/* Ensure popup appears above common UI elements */
+.cart-popup {
+    /* Higher than most modals (1000-1500) */
+    /* Higher than Bootstrap modals (1050) */
+    /* Higher than most tooltips (1070) */
+    z-index: 2000 !important;
+}
+
+/* Animation classes for smoother transitions */
+.cart-popup.opening {
+    animation: cartPopupSlideIn 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.cart-popup.closing {
+    animation: cartPopupSlideOut 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes cartPopupSlideIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+@keyframes cartPopupSlideOut {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+}
+
+/* Debug helper - remove in production */
+.cart-popup.debug {
+    background: red !important;
+    opacity: 1 !important;
+    display: flex !important;
+    visibility: visible !important;
+}

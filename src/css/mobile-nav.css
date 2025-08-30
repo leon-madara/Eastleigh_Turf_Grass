@@ -1,0 +1,138 @@
+/* =========================================
+   MOBILE NAVIGATION STYLES
+   Dedicated file for mobile navigation overlay
+   ========================================= */
+
+/* Mobile Navigation Variables */
+:root {
+    --mobile-nav-bg: transparent;
+    --mobile-nav-blur: 30px;
+    --mobile-nav-text: #000000;
+    --mobile-nav-text-hover: #013217;
+    --mobile-nav-bg-hover: hsl(65, 7%, 31%);
+    --mobile-nav-active-bg: rgba(219, 255, 25, 0.18);
+    --mobile-nav-transition: 0.3s ease;
+}
+
+/* =========================================
+   MOBILE NAVIGATION OVERLAY
+   ========================================= */
+
+/* Mobile Navigation Container */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--mobile-nav-bg);
+    backdrop-filter: blur(var(--mobile-nav-blur));
+    -webkit-backdrop-filter: blur(var(--mobile-nav-blur));
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-100%);
+    transition: transform var(--mobile-nav-transition);
+}
+
+/* Active State */
+.mobile-nav.active {
+    transform: translateX(0);
+}
+
+/* =========================================
+   MOBILE NAVIGATION LINKS
+   ========================================= */
+
+/* Base Mobile Navigation Links */
+.mobile-nav .nav-link {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    margin: 0.5rem 0;
+    border-radius: 1rem;
+    text-align: center;
+    min-width: 200px;
+    color: var(--mobile-nav-text);
+    transition: background-color var(--mobile-nav-transition),
+        color var(--mobile-nav-transition),
+        transform var(--mobile-nav-transition);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* Hover and Focus States */
+.mobile-nav .nav-link:hover,
+.mobile-nav .nav-link:focus {
+    background-color: var(--mobile-nav-bg-hover);
+    color: var(--mobile-nav-text-hover);
+    transform: translateY(-2px);
+}
+
+/* Active/Selected State */
+.mobile-nav .nav-link.is-active {
+    background: var(--mobile-nav-active-bg);
+    color: var(--mobile-nav-text) !important;
+}
+
+/* =========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================= */
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+    .mobile-nav .nav-link {
+        font-size: 1.3rem;
+        padding: 0.8rem 1.5rem;
+        min-width: 180px;
+    }
+}
+
+/* Extra Small Mobile Devices */
+@media (max-width: 360px) {
+    .mobile-nav .nav-link {
+        font-size: 1.2rem;
+        padding: 0.7rem 1.2rem;
+        min-width: 160px;
+    }
+}
+
+/* =========================================
+   ACCESSIBILITY & INTERACTIONS
+   ========================================= */
+
+/* Focus Visible for Keyboard Navigation */
+.mobile-nav .nav-link:focus-visible {
+    outline: 2px solid var(--mobile-nav-text);
+    outline-offset: 2px;
+}
+
+/* Prevent Text Selection */
+.mobile-nav .nav-link {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* =========================================
+   PERFORMANCE OPTIMIZATIONS
+   ========================================= */
+
+/* Hardware Acceleration */
+.mobile-nav {
+    will-change: transform;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+
+.mobile-nav.active {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+
+/* Smooth Animations */
+.mobile-nav .nav-link {
+    will-change: transform, background-color, color;
+}

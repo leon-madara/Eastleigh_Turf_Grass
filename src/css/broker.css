@@ -1,0 +1,1814 @@
+/* ================================================================
+   UNIFIED BROKER DASHBOARD STYLES V5
+   Integrated Header Design + Dashboard Components
+   ================================================================ */
+
+/* ================================================================
+   1. CSS VARIABLES (UNIFIED THEME SYSTEM)
+   ================================================================ */
+:root {
+    /* Primary Colors */
+    --primary: #10b981;
+    --primary-dark: #059669;
+    --primary-light: #34d399;
+    --text-color: #09111d;
+    --text-dark: #1f2937;
+    --text-light: #6b7280;
+    --text-floating: #1f2937;
+
+    /* Background Colors */
+    --bg-main: hsl(48, 22%, 95%);
+    --bg-card: #ffffff;
+    --bg-secondary: #f9fafb;
+    --bg-accent: hsl(40, 27%, 85%);
+
+    /* Border & Effects */
+    --border-color: rgba(0, 0, 0, 0.1);
+    --border-color-light: #e5e7eb;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+    /* Header System */
+    --header-height: 60px;
+    --header-top: 0.5rem;
+    --header-side: 0;
+    --header-radius: 0;
+    --header-gap: 1rem;
+
+    /* Glassmorphism */
+    --glass-blur: 10px;
+    --glass-blur-floating: 20px;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --glass-bg-floating: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --glass-border-floating: rgba(255, 255, 255, 0.2);
+
+    /* Transitions */
+    --transition: 0.3s ease;
+    --transition-fast: 0.2s ease;
+
+    /* Z-index */
+    --z-header: 1000;
+    --z-hamburger: 1001;
+    --z-modal: 1100;
+    --z-toast: 1200;
+}
+
+/* ================================================================
+   2. GLOBAL RESET & BASE STYLES
+   ================================================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-main);
+    min-height: 100vh;
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding-top: calc(var(--header-height) + 2rem);
+}
+
+/* ================================================================
+   3. UNIFIED HEADER COMPONENT
+   ================================================================ */
+
+/* Base Header Styles - Glassmorphism */
+.header {
+    position: fixed;
+    top: var(--header-top);
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+    z-index: var(--z-header);
+    display: flex;
+    align-items: center;
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--header-radius);
+    transition: all var(--transition);
+    box-shadow: var(--shadow-md);
+}
+
+/* Floating Header State */
+.header.floating {
+    background: var(--glass-bg-floating);
+    backdrop-filter: blur(var(--glass-blur-floating));
+    -webkit-backdrop-filter: blur(var(--glass-blur-floating));
+    border: 1px solid var(--glass-border-floating);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(0);
+}
+
+.header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: var(--header-gap);
+}
+
+/* Logo */
+.header .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform var(--transition);
+}
+
+.header .logo:hover {
+    transform: scale(1.02);
+}
+
+.header .logo img {
+    height: 36px;
+    width: auto;
+}
+
+/* Navigation */
+.header .nav {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.header .nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 0.5rem 1rem;
+    border-radius: calc(var(--header-radius) * 0.6);
+    transition: all var(--transition);
+    opacity: 0.9;
+}
+
+.header .nav-link:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+}
+
+.header .nav-link.active {
+    background: rgba(16, 185, 129, 0.15);
+    color: var(--primary);
+    opacity: 1;
+}
+
+/* Header CTA */
+.header .header-cta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Cart Button */
+.header .cart-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all var(--transition);
+}
+
+.header .cart-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+.header .cart-icon {
+    width: 18px;
+    height: 18px;
+    fill: var(--primary);
+}
+
+.header .cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ef4444;
+    color: white;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 10px;
+    min-width: 16px;
+    text-align: center;
+}
+
+/* Broker Button */
+.header .broker-btn {
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: calc(var(--header-radius) * 0.6);
+    font-weight: 600;
+    font-size: 14px;
+    transition: all var(--transition);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header .broker-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Hamburger Menu */
+.header .hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 28px;
+    height: 22px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: var(--z-hamburger);
+}
+
+.header .hamburger-menu span {
+    width: 100%;
+    height: 2.5px;
+    background: var(--text-color);
+    border-radius: 2px;
+    transition: all var(--transition);
+    transform-origin: center;
+}
+
+.header .hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.header .hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.header .hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile Navigation - Now handled by mobile-nav.css */
+
+/* ================================================================
+   4. MAIN DASHBOARD LAYOUT
+   ================================================================ */
+
+.dashboard-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1rem 20px 20px;
+    background: var(--bg-main);
+    min-height: calc(100vh - var(--header-height) - 2rem);
+    border-radius: 0;
+}
+
+/* Dashboard Header */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border-radius: var(--header-radius);
+    border: 1px solid var(--border-color-light);
+    box-shadow: var(--shadow-sm);
+}
+
+.header-left {
+    flex: 1;
+}
+
+.dashboard-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.title-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.title-text h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.title-text p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.status-indicator .status-badge {
+    background: #fef3c7;
+    color: #92400e;
+    padding: 0.5rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid #fbbf24;
+}
+
+/* ================================================================
+   5. NAVIGATION COMPONENTS
+   ================================================================ */
+
+/* Navigation Tabs */
+.nav-tabs {
+    display: flex;
+    background: var(--bg-accent);
+    border-radius: var(--header-radius);
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.nav-tab {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    border-radius: calc(var(--header-radius) * 0.7);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all var(--transition);
+    -webkit-user-select: none;
+    user-select: none;
+    background: none;
+    border: none;
+}
+
+.nav-tab i {
+    font-size: 1.125rem;
+}
+
+.nav-tab:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--text-dark);
+}
+
+.nav-tab.active {
+    background: var(--bg-card);
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Broker Navigation Bar */
+.broker-nav {
+    background: var(--bg-accent);
+    border-radius: var(--header-radius);
+    margin: 1rem 0.5rem 1.5rem 0.5rem;
+    padding: 0.5rem 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.broker-nav .nav-item {
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: calc(var(--header-radius) * 0.6);
+    background: none;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+}
+
+.broker-nav .nav-item:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.broker-nav .nav-item.active {
+    background: var(--bg-card);
+    color: var(--primary);
+}
+
+/* ================================================================
+   6. CONTENT AREA & TAB CONTENT
+   ================================================================ */
+
+.dashboard-content {
+    min-height: 500px;
+}
+
+.tab-content {
+    background: var(--bg-card);
+    border-radius: var(--header-radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    min-height: 400px;
+    display: none;
+    border: 1px solid var(--border-color-light);
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.tab-content h2 i {
+    color: var(--primary);
+    font-size: 1.75rem;
+}
+
+.tab-content p {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 1.25rem;
+}
+
+.order-description,
+.inquiry-description,
+.preorder-description {
+    font-size: 1rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+/* ================================================================
+   7. TABLE COMPONENTS
+   ================================================================ */
+
+.order-table-container,
+.inquiry-table-container,
+.preorder-table-container {
+    margin-bottom: 1.5rem;
+}
+
+.order-table,
+.inquiry-table,
+.preorder-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--bg-card);
+    border-radius: var(--header-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1.25rem;
+    border: 1px solid var(--border-color-light);
+}
+
+.order-table thead,
+.inquiry-table thead,
+.preorder-table thead {
+    background: var(--bg-secondary);
+}
+
+.order-table th,
+.inquiry-table th,
+.preorder-table th {
+    padding: 1rem 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-dark);
+    border-bottom: 1px solid var(--border-color-light);
+    font-size: 0.875rem;
+}
+
+.order-table td,
+.inquiry-table td,
+.preorder-table td {
+    padding: 1rem 0.75rem;
+    border-bottom: 1px solid #f3f4f6;
+    vertical-align: middle;
+}
+
+.order-table tbody tr:hover,
+.inquiry-table tbody tr:hover,
+.preorder-table tbody tr:hover {
+    background: var(--bg-secondary);
+}
+
+.order-table tbody tr:last-child td,
+.inquiry-table tbody tr:last-child td,
+.preorder-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Form Controls in Tables */
+.table-select,
+.table-input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-color-light);
+    border-radius: calc(var(--header-radius) * 0.5);
+    font-size: 0.875rem;
+    background: var(--bg-card);
+    transition: border-color var(--transition);
+}
+
+.table-select:focus,
+.table-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.table-input[readonly] {
+    background: var(--bg-secondary);
+    color: var(--text-light);
+}
+
+/* ================================================================
+   8. FORM COMPONENTS
+   ================================================================ */
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    font-size: 0.875rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border-color-light);
+    border-radius: calc(var(--header-radius) * 0.7);
+    font-size: 1rem;
+    transition: all var(--transition);
+    background: var(--bg-card);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: var(--bg-card);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.form-group input:read-only {
+    background: var(--bg-secondary);
+    color: var(--text-light);
+    cursor: not-allowed;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-group select {
+    cursor: pointer;
+}
+
+/* Profile Form */
+.profile-form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Order/PreOrder Form Section */
+.order-form-section {
+    background: var(--bg-secondary);
+    border-radius: var(--header-radius);
+    box-shadow: var(--shadow-sm);
+    margin: 0.5rem 0.5rem 1.5rem 0.5rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color-light);
+}
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.order-form h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.quantity-group .quantity-inputs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.quantity-group .multiply,
+.quantity-group .equals {
+    font-size: 1.125rem;
+    color: var(--text-light);
+}
+
+#credit[readonly] {
+    background: #f3f7f3;
+    color: #dc2626;
+    font-weight: 600;
+    border: 2px solid #dc2626;
+}
+
+/* Inquiry Form Container */
+.inquiry-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1.25rem;
+}
+
+.inquiry-form-container h3 {
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+
+#bargain-price.bargain-success {
+    border-color: var(--primary);
+    background-color: #f0fdf4;
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+/* ================================================================
+   9. BUTTON COMPONENTS
+   ================================================================ */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: calc(var(--header-radius) * 0.7);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition);
+    text-decoration: none;
+    outline: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+.btn-secondary {
+    background: var(--border-color-light);
+    color: var(--text-dark);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary:hover {
+    background: #d1d5db;
+    transform: translateY(-1px);
+}
+
+.btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+}
+
+.btn-danger {
+    background: #dc2626;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #b91c1c;
+}
+
+.delete-btn {
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 0.375rem 0.75rem;
+    border-radius: calc(var(--header-radius) * 0.5);
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: all var(--transition);
+}
+
+.delete-btn:hover {
+    background: #dc2626;
+    transform: scale(1.05);
+}
+
+.btn-remove {
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    border-radius: calc(var(--header-radius) * 0.5);
+    padding: 0.375rem 0.625rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.btn-remove:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+}
+
+.place-order-btn,
+.pay-balance-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(90deg, #43a047 0%, #388e3c 100%);
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border: none;
+    border-radius: calc(var(--header-radius) * 0.7);
+    margin-top: 0.5rem;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.place-order-btn:hover,
+.place-order-btn:focus,
+.pay-balance-btn:hover,
+.pay-balance-btn:focus {
+    background: linear-gradient(90deg, #388e3c 0%, #43a047 100%);
+    transform: translateY(-1px);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+/* ================================================================
+   10. CARD COMPONENTS & LAYOUTS
+   ================================================================ */
+
+.summary-card {
+    background: var(--bg-card);
+    border-radius: var(--header-radius);
+    box-shadow: var(--shadow-sm);
+    padding: 1.5rem;
+    margin: 1rem 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border: 1px solid var(--border-color-light);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.summary-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.summary-label {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 0.25rem;
+}
+
+.summary-value {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.summary-value.outstanding {
+    color: #dc2626;
+}
+
+.payment-summary-section {
+    background: #f8f6f2;
+    border-radius: var(--header-radius);
+    box-shadow: var(--shadow-sm);
+    margin: 1.25rem 0.5rem;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border: 1px solid var(--border-color-light);
+}
+
+.payment-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.075rem;
+    gap: 1rem;
+}
+
+.payment-label {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.payment-input {
+    padding: 0.625rem 0.75rem;
+    border: 1px solid var(--border-color-light);
+    border-radius: calc(var(--header-radius) * 0.6);
+    font-size: 1rem;
+    background: var(--bg-card);
+    outline: none;
+    width: 120px;
+    text-align: right;
+    transition: border var(--transition-fast);
+}
+
+.payment-input:focus {
+    border-color: var(--primary);
+}
+
+.payment-value {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.payment-value.credit {
+    color: #dc2626;
+}
+
+/* ================================================================
+   11. MODULE-SPECIFIC STYLES
+   ================================================================ */
+
+.order-item,
+.preorder-item,
+.inquiry-item {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color-light);
+    border-radius: calc(var(--header-radius) * 0.7);
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.order-item .item-details h4,
+.preorder-item .preorder-header h4,
+.inquiry-item .inquiry-header h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-dark);
+    font-size: 1.125rem;
+}
+
+.order-item .item-total,
+.preorder-item .preorder-meta,
+.inquiry-item .inquiry-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.total-amount {
+    font-weight: 600;
+    color: var(--primary);
+    font-size: 1rem;
+}
+
+.preorder-actions,
+.inquiry-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.preorder-details,
+.inquiry-details {
+    margin: 0.75rem 0;
+}
+
+.preorder-details p,
+.inquiry-details p {
+    margin: 0.25rem 0;
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+.preorder-details strong,
+.inquiry-details strong {
+    color: var(--text-dark);
+}
+
+.order-summary,
+.preorders-list,
+.inquiries-list {
+    margin-bottom: 1.5rem;
+}
+
+.order-summary h3 {
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    font-size: 1.25rem;
+}
+
+.order-total {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color-light);
+    text-align: right;
+    font-size: 1.125rem;
+    color: var(--primary);
+}
+
+/* ================================================================
+   12. BADGE & STATUS COMPONENTS
+   ================================================================ */
+
+.priority-badge,
+.status-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.priority-low {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.priority-medium {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.priority-high {
+    background: #fed7aa;
+    color: #c2410c;
+}
+
+.priority-urgent {
+    background: #fecaca;
+    color: #991b1b;
+}
+
+.status-pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status-open {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.status-submitted {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.price-difference {
+    font-weight: 600;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+}
+
+.price-difference.positive {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.price-difference.negative {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.price-difference.neutral {
+    background: #f3f4f6;
+    color: var(--text-light);
+}
+
+/* ================================================================
+   13. MODAL COMPONENTS
+   ================================================================ */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-modal);
+    padding: 1.25rem;
+}
+
+.modal-content {
+    background: var(--bg-card);
+    border-radius: var(--header-radius);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 1px solid var(--border-color-light);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1.5rem 1rem;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: var(--text-dark);
+    font-size: 1.25rem;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: color var(--transition-fast);
+}
+
+.close-btn:hover {
+    color: var(--text-dark);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+/* ================================================================
+   14. NOTIFICATION COMPONENTS
+   ================================================================ */
+
+.toast {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    z-index: var(--z-toast);
+    animation: toastSlideIn var(--transition) ease;
+}
+
+.toast.hidden {
+    display: none;
+}
+
+.toast.success .toast-content {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+}
+
+.toast.error .toast-content {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    border-radius: calc(var(--header-radius) * 0.7);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    min-width: 300px;
+}
+
+.toast-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.toast-message {
+    flex: 1;
+    font-weight: 500;
+}
+
+.toast-close {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 0.25rem;
+    opacity: 0.8;
+    transition: opacity var(--transition-fast);
+}
+
+.toast-close:hover {
+    opacity: 1;
+}
+
+/* ================================================================
+   15. EMPTY STATE COMPONENTS
+   ================================================================ */
+
+.empty-state {
+    text-align: center;
+    padding: 3.75rem 1.25rem;
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.6;
+    background: var(--bg-card);
+    border-radius: var(--header-radius);
+    border: 2px dashed var(--border-color-light);
+}
+
+.empty-state i {
+    font-size: 3rem;
+    color: #d1d5db;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.empty-state p {
+    margin: 0;
+    color: #9ca3af;
+}
+
+/* ================================================================
+   16. ANIMATIONS & TRANSITIONS
+   ================================================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes toastSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ================================================================
+   17. RESPONSIVE DESIGN - TABLET (max-width: 768px)
+   ================================================================ */
+
+@media (max-width: 768px) {
+    body {
+        padding-top: calc(var(--header-height) + 1rem);
+    }
+
+    .header {
+        top: 0.25rem;
+        left: 0;
+        right: 0;
+    }
+
+    .header .container {
+        padding: 0 1rem;
+    }
+
+    .header .nav {
+        display: none;
+    }
+
+    .header .hamburger-menu {
+        display: flex;
+    }
+
+    .dashboard-container {
+        padding: 1rem 15px 15px;
+        margin: 0;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        gap: 1.25rem;
+        align-items: flex-start;
+        padding: 1.25rem;
+    }
+
+    .nav-tabs {
+        flex-wrap: wrap;
+        padding: 0.375rem;
+    }
+
+    .nav-tab {
+        flex-basis: 48%;
+        margin: 0.125rem;
+        font-size: 0.9375rem;
+        padding: 0.625rem 0.75rem;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .toast-content {
+        min-width: 280px;
+        margin: 0 15px;
+    }
+
+    .order-item,
+    .preorder-item,
+    .inquiry-item {
+        padding: 1rem;
+    }
+
+    .preorder-actions,
+    .inquiry-actions {
+        flex-direction: column;
+    }
+
+    .modal-content {
+        margin: 0.625rem;
+        max-width: calc(100% - 1.25rem);
+    }
+
+    .order-table,
+    .inquiry-table,
+    .preorder-table {
+        font-size: 0.75rem;
+    }
+
+    .order-table th,
+    .inquiry-table th,
+    .preorder-table th,
+    .order-table td,
+    .inquiry-table td,
+    .preorder-table td {
+        padding: 0.5rem 0.375rem;
+    }
+
+    .order-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .order-field label {
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 0.125rem;
+    }
+
+    .table-select,
+    .table-input {
+        font-size: 0.75rem;
+        padding: 0.375rem 0.5rem;
+    }
+
+    .delete-btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.6875rem;
+    }
+
+    .price-difference {
+        font-size: 0.6875rem;
+        padding: 0.125rem 0.375rem;
+    }
+
+    .summary-card {
+        padding: 1rem 0.75rem;
+        margin: 0.5rem 0.125rem;
+    }
+
+    .summary-row {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .pay-balance-btn,
+    .place-order-btn {
+        font-size: 1rem;
+        padding: 0.75rem;
+    }
+
+    .order-form-section {
+        padding: 1rem 0.75rem;
+        margin: 0.5rem 0.125rem;
+    }
+
+    .order-form h2 {
+        font-size: 1rem;
+    }
+
+    .payment-summary-section {
+        padding: 0.875rem 0.75rem;
+        margin: 0.875rem 0.125rem;
+    }
+
+    .payment-summary-row {
+        font-size: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.375rem;
+    }
+
+    .payment-input {
+        width: 100%;
+        font-size: 0.98rem;
+        padding: 0.5rem 0.75rem;
+    }
+
+    .broker-nav {
+        padding: 0.375rem;
+        margin: 0.875rem 0.125rem;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+
+    .broker-nav .nav-item {
+        font-size: 0.9375rem;
+        padding: 0.375rem 0.75rem;
+    }
+}
+
+/* ================================================================
+   18. RESPONSIVE DESIGN - MOBILE (max-width: 480px)
+   ================================================================ */
+
+@media (max-width: 480px) {
+    body {
+        padding-top: calc(var(--header-height) + 0.5rem);
+    }
+
+    .header {
+        top: 0.125rem;
+        left: 0;
+        right: 0;
+        height: calc(var(--header-height) - 5px);
+    }
+
+    .header .container {
+        padding: 0 0.75rem;
+        position: relative;
+    }
+
+    /* Remove logo and add hamburger on extreme left */
+    .header .logo {
+        display: none;
+    }
+
+    .header .hamburger-menu {
+        display: flex;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .header .nav {
+        display: none;
+    }
+
+    .header .header-cta {
+        gap: 0.5rem;
+        margin-left: auto;
+    }
+
+    .header .broker-btn {
+        padding: 0.5rem 0.875rem;
+        font-size: 0.875rem;
+    }
+
+    .dashboard-container {
+        margin: 0.25rem;
+        padding: 0.75rem;
+    }
+
+    .title-text h1 {
+        font-size: 1.5rem;
+    }
+
+    .title-text p {
+        font-size: 0.875rem;
+    }
+
+    .nav-tab {
+        padding: 0.625rem 1rem;
+        font-size: 0.875rem;
+    }
+
+    .tab-content {
+        padding: 1.25rem;
+    }
+
+    .tab-content h2 {
+        font-size: 1.25rem;
+    }
+
+    /* Mobile Table Card Layout - Vertical Stack */
+    .order-table-container,
+    .inquiry-table-container,
+    .preorder-table-container {
+        overflow-x: visible;
+        width: 100%;
+    }
+
+    .order-table,
+    .inquiry-table,
+    .preorder-table,
+    .order-table thead,
+    .inquiry-table thead,
+    .preorder-table thead,
+    .order-table tbody,
+    .inquiry-table tbody,
+    .preorder-table tbody,
+    .order-table tr,
+    .inquiry-table tr,
+    .preorder-table tr,
+    .order-table th,
+    .inquiry-table th,
+    .preorder-table th,
+    .order-table td,
+    .inquiry-table td,
+    .preorder-table td {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .order-table thead,
+    .inquiry-table thead,
+    .preorder-table thead {
+        display: none !important;
+    }
+
+    .order-table tr,
+    .inquiry-table tr,
+    .preorder-table tr {
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid var(--border-color-light);
+        background: var(--bg-card);
+        border-radius: calc(var(--header-radius) * 0.7);
+        box-shadow: var(--shadow-sm);
+        padding: 1rem;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+        border: 1px solid var(--border-color-light);
+    }
+
+    .order-table td,
+    .inquiry-table td,
+    .preorder-table td {
+        padding: 0.75rem 0 0.25rem 0;
+        position: relative;
+        text-align: left;
+        border: none;
+        width: 100%;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .order-table td:before,
+    .inquiry-table td:before,
+    .preorder-table td:before {
+        content: attr(data-label);
+        display: block;
+        font-weight: 600;
+        color: var(--text-light);
+        margin-bottom: 0.25rem;
+        font-size: 0.875rem;
+    }
+
+    /* Ensure form controls in mobile tables fit properly */
+    .order-table .table-select,
+    .inquiry-table .table-select,
+    .preorder-table .table-select,
+    .order-table .table-input,
+    .inquiry-table .table-input,
+    .preorder-table .table-input {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        margin-top: 0.25rem;
+    }
+
+    .delete-btn {
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+
+    .price-difference {
+        display: inline-block;
+        margin-top: 0.25rem;
+    }
+}
+
+/* ================================================================
+   MODAL STYLES FOR ADD ITEM
+   ================================================================ */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: var(--z-modal);
+    padding: 1rem;
+}
+
+.modal-content {
+    background: var(--bg-card);
+    border-radius: var(--header-radius);
+    box-shadow: var(--shadow-lg);
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color-light);
+}
+
+.modal-header h2 {
+    color: var(--text-dark);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.modal-close:hover {
+    background: var(--bg-secondary);
+    color: var(--text-dark);
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+.modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 1rem 1.5rem 1.5rem 1.5rem;
+    border-top: 1px solid var(--border-color-light);
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color-light);
+    border-radius: calc(var(--header-radius) * 0.5);
+    font-size: 1rem;
+    transition: all var(--transition-fast);
+    background: var(--bg-card);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.form-group input:disabled,
+.form-group select:disabled {
+    background: var(--bg-secondary);
+    color: var(--text-light);
+    cursor: not-allowed;
+}
+
+/* Discount Section */
+.discount-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color-light);
+}
+
+.discount-section h3 {
+    color: var(--text-dark);
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.coupon-input-group {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.coupon-input-group input {
+    flex: 1;
+}
+
+.coupon-input-group button {
+    padding: 0.75rem 1rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: calc(var(--header-radius) * 0.5);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+}
+
+.coupon-input-group button:hover:not(:disabled) {
+    background: var(--primary-dark);
+}
+
+.coupon-input-group button:disabled {
+    background: var(--text-light);
+    cursor: not-allowed;
+}
+
+/* Discount Summary */
+.discount-summary {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: calc(var(--header-radius) * 0.5);
+    border: 1px solid var(--border-color-light);
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.summary-row:last-child {
+    margin-bottom: 0;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border-color-light);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.discount-row,
+.coupon-row {
+    color: var(--primary);
+}
+
+.final-total {
+    color: var(--text-dark);
+    font-size: 1.125rem !important;
+}
+
+/* Discount Info in Order Table */
+.discount-info {
+    color: var(--primary);
+    font-style: italic;
+    margin-top: 0.25rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 0.5rem;
+        max-height: 95vh;
+    }
+
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 1rem;
+    }
+
+    .coupon-input-group {
+        flex-direction: column;
+    }
+
+    .coupon-input-group button {
+        width: 100%;
+    }
+}

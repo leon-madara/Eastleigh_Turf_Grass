@@ -1,0 +1,269 @@
+/* Coupon Modal Styles */
+.coupon-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.coupon-modal.active {
+    display: flex;
+}
+
+.coupon-modal .modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+}
+
+.coupon-modal .modal-content {
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    max-width: 450px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+.coupon-modal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1.5rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.coupon-modal .modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.coupon-modal .modal-close {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.coupon-modal .modal-close:hover {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.coupon-modal .modal-body {
+    padding: 1.5rem;
+}
+
+.coupon-modal .modal-footer {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 1.5rem 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* Coupon Input Section */
+.coupon-input-section {
+    margin-bottom: 2rem;
+}
+
+.coupon-input-section label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.input-group {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #059669;
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+}
+
+.input-group input::placeholder {
+    color: #9ca3af;
+}
+
+.input-group button {
+    padding: 0.75rem 1.5rem;
+    background: #059669;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+}
+
+.input-group button:hover {
+    background: #047857;
+}
+
+.input-group button:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+}
+
+/* Coupon Message */
+.coupon-message {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    display: none;
+}
+
+.coupon-message.success {
+    background: #d1fae5;
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
+
+.coupon-message.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+}
+
+.coupon-message.info {
+    background: #dbeafe;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
+}
+
+/* Coupon Help Section */
+.coupon-help {
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.coupon-help h4 {
+    margin: 0 0 0.5rem;
+    color: #1f2937;
+    font-size: 1.125rem;
+}
+
+.coupon-help p {
+    margin: 0 0 1.5rem;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.popular-codes h5 {
+    margin: 0 0 1rem;
+    color: #374151;
+    font-size: 1rem;
+}
+
+.code-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.code-suggestion {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #059669;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.code-suggestion:hover {
+    background: #059669;
+    color: white;
+    border-color: #059669;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(5, 150, 105, 0.2);
+}
+
+/* Button Styles */
+.btn-secondary {
+    padding: 0.75rem 1.5rem;
+    background: #f3f4f6;
+    color: #374151;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.btn-secondary:hover {
+    background: #e5e7eb;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .coupon-modal .modal-content {
+        margin: 1rem;
+        max-height: calc(100vh - 2rem);
+    }
+
+    .coupon-modal .modal-header {
+        padding: 1rem 1rem 0.75rem;
+    }
+
+    .coupon-modal .modal-body {
+        padding: 1rem;
+    }
+
+    .coupon-modal .modal-footer {
+        padding: 0.75rem 1rem 1rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    .input-group button {
+        width: 100%;
+    }
+
+    .code-suggestions {
+        justify-content: center;
+    }
+}

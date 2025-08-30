@@ -1,0 +1,28 @@
+{
+    "promotions": [
+        {
+            "id": "discount-of-day",
+            "name": "Discount of the Day",
+            "type": "percentage",
+            "value": 15,
+            "minOrder": 10000,
+            "maxDiscount": 500000,
+            "active": true,
+            "description": "15% off on orders above KES 10,000",
+            "validFrom": "2024-01-01",
+            "validTo": "2024-12-31"
+        },
+        {
+            "id": "first-time-buyer",
+            "name": "First Time Buyer",
+            "type": "percentage",
+            "value": 10,
+            "minOrder": 5000,
+            "maxDiscount": 2000,
+            "active": true,
+            "description": "10% off for first-time customers",
+            "validFrom": "2024-01-01",
+            "validTo": "2024-12-31"
+        }
+    ]
+}

@@ -1,0 +1,81 @@
+/* =========================================
+   HOME PAGE (non-hero)
+   - Keep hero/BA styles in hero.css
+========================================= */
+
+/* Page sections scaffolding */
+.home-section {
+    padding: clamp(2rem, 4vw, 3rem) 0;
+    background: transparent;
+    margin-top: 0;
+    /* Ensure no gap after 92vh hero */
+}
+
+.home-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+
+
+/* Additional content blocks */
+.additional-content {
+    background: transparent;
+}
+
+.additional-content .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.additional-content .feature {
+    padding: 1rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.additional-content .feature h3 {
+    margin: 0 0 .25rem;
+    font-size: 1rem;
+}
+
+.additional-content .feature p {
+    margin: 0;
+    opacity: .85;
+}
+
+/* Outro / CTA styles (optional) */
+.outro-title {
+    margin-top: 2rem;
+    text-align: center;
+    opacity: .9;
+}
+
+/* -----------------------------------------
+   Responsive
+------------------------------------------ */
+@media (max-width: 1024px) {
+
+    .animation .animation-content,
+    .animation.reverse .animation-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .additional-content .features-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .additional-content .features-grid {
+        grid-template-columns: 1fr;
+    }
+}

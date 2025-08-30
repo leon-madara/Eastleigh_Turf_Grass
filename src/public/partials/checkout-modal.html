@@ -1,0 +1,183 @@
+<!-- Checkout modal partial -->
+<div id="checkoutModal" class="md3-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title" aria-describedby="checkout-desc" hidden>
+    <!-- Backdrop -->
+    <div class="md3-modal__backdrop" data-close-checkout></div>
+
+    <!-- Dialog -->
+    <div class="md3-modal__dialog" role="document">
+        <!-- Top app-bar / Surface container high (MD3) -->
+        <header class="md3-modal__header">
+            <button class="icon-btn" id="backBtn" aria-label="Back" data-close-checkout>
+                <!-- MD3 back arrow -->
+                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </button>
+            <div class="md3-modal__header-text">
+                <h2 id="checkout-title" class="headline">Checkout</h2>
+                <p id="checkout-desc" class="subtitle">Complete your details and confirm order</p>
+            </div>
+            <button class="icon-btn danger" id="closeCheckoutModal" aria-label="Close" data-close-checkout>
+                <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M18 6L6 18M6 6l12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </button>
+        </header>
+
+        <!-- Stepper (MD3 Segmented progress) -->
+        <div class="md3-stepper" aria-label="Checkout steps">
+            <div class="step is-active" data-step="1">
+                <span class="dot">1</span>
+                <span class="label">Details</span>
+            </div>
+            <div class="rail"></div>
+            <div class="step" data-step="2">
+                <span class="dot">2</span>
+                <span class="label">Review</span>
+            </div>
+            <div class="rail"></div>
+            <div class="step" data-step="3">
+                <span class="dot">3</span>
+                <span class="label">Send</span>
+            </div>
+        </div>
+
+        <!-- Content: Glass surface container + form -->
+        <div class="md3-modal__body">
+            <!-- Step 1: Customer Details -->
+            <section id="step1" class="section checkout-step active">
+                <h3 class="section-title">Your Details</h3>
+
+                <!-- Name (MD3 filled text field) -->
+                <label class="md3-field filled">
+                    <span class="md3-label">Name</span>
+                    <input type="text" inputmode="text" placeholder=" " id="customerName" autocomplete="name" />
+                    <span class="md3-support"></span>
+                </label>
+
+                <!-- Phone (prefix + input) -->
+                <div class="md3-field-group">
+                    <label class="md3-prefix">
+                        <span class="flag">🇰🇪</span>
+                        <span class="code">+254</span>
+                    </label>
+                    <label class="md3-field filled flex-1">
+                        <span class="md3-label">Phone</span>
+                        <input type="tel" inputmode="tel" placeholder=" " id="customerPhone" autocomplete="tel" />
+                    </label>
+                </div>
+
+                <button class="btn btn-elevated detect" id="detectPhoneBtn">Detect</button>
+
+                <!-- Location -->
+                <label class="md3-field filled">
+                    <span class="md3-label">Location</span>
+                    <input type="text" inputmode="text" placeholder=" " id="customerLocation" autocomplete="address-line1 country-name" />
+                    <span class="md3-support"></span>
+                </label>
+
+                <button class="btn btn-elevated detect" id="detectLocationBtn">Detect</button>
+
+                <label class="md3-checkbox">
+                    <input type="checkbox" id="rememberDetails" checked />
+                    <span class="box"></span>
+                    <span class="label">Remember my details</span>
+                </label>
+            </section>
+
+            <!-- Step 2: Order Summary -->
+            <section id="step2" class="section checkout-step">
+                <h3 class="section-title">Review Order</h3>
+
+                <div class="contact-summary">
+                    <h4>Contact Information</h4>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="label">Name:</span>
+                            <span id="summaryName" class="value"></span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="label">Phone:</span>
+                            <span id="summaryPhone" class="value"></span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="label">Location:</span>
+                            <span id="summaryLocation" class="value"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-items">
+                    <h4>Order Items</h4>
+                    <div id="orderItemsList" class="items-list">
+                        <!-- Items will be populated dynamically -->
+                    </div>
+                </div>
+
+                <div class="order-summary">
+                    <div class="summary-row">
+                        <span>Total Area:</span>
+                        <span id="totalArea">0 m²</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="summarySubtotal">KES 0</span>
+                    </div>
+                    <div class="summary-row discount-row">
+                        <span>Discount:</span>
+                        <span id="summaryDiscount">-KES 0</span>
+                    </div>
+                    <div class="summary-row final-total">
+                        <span>Final Total:</span>
+                        <span id="summaryTotal">KES 0</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Step 3: WhatsApp Confirmation -->
+            <section id="step3" class="section checkout-step">
+                <h3 class="section-title">Send Order</h3>
+
+                <div class="whatsapp-confirmation">
+                    <div class="success-banner">
+                        <i class="fab fa-whatsapp"></i>
+                        <h3>Ready to Send!</h3>
+                        <p>Your order will open in WhatsApp</p>
+                    </div>
+
+                    <div class="message-preview">
+                        <h4>Message Preview:</h4>
+                        <div id="messagePreview" class="preview-content">
+                            <!-- Message will be populated dynamically -->
+                        </div>
+                    </div>
+
+                    <div class="fallback-options">
+                        <button type="button" class="btn-secondary" id="copyMessageBtn">
+                            <i class="fas fa-copy"></i>
+                            Copy Message
+                        </button>
+                        <button type="button" class="btn-secondary" id="openWhatsAppWebBtn">
+                            <i class="fab fa-whatsapp"></i>
+                            Open WhatsApp Web
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer action -->
+        <footer class="md3-modal__footer">
+            <button class="btn btn-cta" id="nextBtn">
+                Review Order
+                <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M5 12h14M13 5l7 7-7 7" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </button>
+            <button class="btn btn-cta" id="sendBtn" style="display: none;">
+                <i class="fab fa-whatsapp"></i>
+                Send via WhatsApp
+            </button>
+        </footer>
+    </div>
+</div>
