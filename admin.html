@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Eastleigh Turf Grass</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- CSS Files will be imported by JavaScript -->
+  <script type="module" crossorigin src="/assets/admin-649e038f.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/toast-0b5c6fe0.js">
+  <link rel="modulepreload" crossorigin href="/assets/mobile-scroll-animations-8f0a4808.js">
+  <link rel="modulepreload" crossorigin href="/assets/cart-4222b405.js">
+  <link rel="modulepreload" crossorigin href="/assets/cartIconPopUp-54af95f0.js">
+  <link rel="stylesheet" href="/assets/mobile-scroll-animations-1860e6d6.css">
+  <link rel="stylesheet" href="/assets/admin-ca05b0ee.css">
+  <link rel="stylesheet" href="/assets/toast-9922a3f5.css">
+  <link rel="stylesheet" href="/assets/products-a760a772.css">
+</head>
+
+<body>
+    <div class="admin-container">
+        <!-- Sidebar Navigation -->
+        <aside class="admin-sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <img src="/assets/mainLogo-731d0185.png" alt="Eastleigh Turf Grass" class="logo-img">
+                    <h2>Admin Panel</h2>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#dashboard" class="nav-link active" data-section="dashboard">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#discounts" class="nav-link" data-section="discounts">
+                            <i class="fas fa-percentage"></i>
+                            <span>Discounts</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#coupons" class="nav-link" data-section="coupons">
+                            <i class="fas fa-ticket-alt"></i>
+                            <span>Coupons</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#brokers" class="nav-link" data-section="brokers">
+                            <i class="fas fa-users"></i>
+                            <span>Brokers</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#orders" class="nav-link" data-section="orders">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Orders</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#analytics" class="nav-link" data-section="analytics">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#settings" class="nav-link" data-section="settings">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="admin-profile">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="profile-info">
+                        <span class="admin-name">Admin User</span>
+                        <span class="admin-role">Super Admin</span>
+                    </div>
+                </div>
+                <button class="logout-btn" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="admin-main">
+            <!-- Top Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle" id="sidebarToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="page-title">Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <div class="header-actions">
+                        <button class="action-btn" id="notificationsBtn">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                        <button class="action-btn" id="helpBtn">
+                            <i class="fas fa-question-circle"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Content Sections -->
+            <div class="content-wrapper">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="content-section active">
+                    <div class="dashboard-grid">
+                        <!-- Stats Cards -->
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <h3 class="stat-number">1,247</h3>
+                                    <p class="stat-label">Total Orders</p>
+                                    <span class="stat-change positive">+12.5%</span>
+                                </div>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <h3 class="stat-number">KES 2.4M</h3>
+                                    <p class="stat-label">Revenue</p>
+                                    <span class="stat-change positive">+8.3%</span>
+                                </div>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <h3 class="stat-number">24</h3>
+                                    <p class="stat-label">Active Brokers</p>
+                                    <span class="stat-change positive">+2</span>
+                                </div>
+                            </div>
+
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-ticket-alt"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <h3 class="stat-number">156</h3>
+                                    <p class="stat-label">Coupons Used</p>
+                                    <span class="stat-change negative">-5.2%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity -->
+                        <div class="dashboard-row">
+                            <div class="dashboard-card">
+                                <div class="card-header">
+                                    <h3>Recent Orders</h3>
+                                    <a href="#orders" class="view-all">View All</a>
+                                </div>
+                                <div class="card-content">
+                                    <div class="recent-orders" id="recentOrders">
+                                        <!-- Will be populated dynamically -->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="dashboard-card">
+                                <div class="card-header">
+                                    <h3>Active Promotions</h3>
+                                    <a href="#discounts" class="view-all">Manage</a>
+                                </div>
+                                <div class="card-content">
+                                    <div class="active-promotions" id="activePromotions">
+                                        <!-- Will be populated dynamically -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Discounts Section -->
+                <section id="discounts" class="content-section">
+                    <div class="section-header">
+                        <h2>Discount Management</h2>
+                        <button class="btn-primary" id="addDiscountBtn">
+                            <i class="fas fa-plus"></i>
+                            Add New Discount
+                        </button>
+                    </div>
+
+                    <div class="discounts-grid" id="discountsGrid">
+                        <!-- Will be populated dynamically -->
+                    </div>
+                </section>
+
+                <!-- Coupons Section -->
+                <section id="coupons" class="content-section">
+                    <div class="section-header">
+                        <h2>Coupon Management</h2>
+                        <button class="btn-primary" id="addCouponBtn">
+                            <i class="fas fa-plus"></i>
+                            Add New Coupon
+                        </button>
+                    </div>
+
+                    <div class="coupons-grid" id="couponsGrid">
+                        <!-- Will be populated dynamically -->
+                    </div>
+                </section>
+
+                <!-- Brokers Section -->
+                <section id="brokers" class="content-section">
+                    <div class="section-header">
+                        <h2>Broker Management</h2>
+                        <button class="btn-primary" id="addBrokerBtn">
+                            <i class="fas fa-plus"></i>
+                            Add New Broker
+                        </button>
+                    </div>
+
+                    <div class="brokers-grid" id="brokersGrid">
+                        <!-- Will be populated dynamically -->
+                    </div>
+                </section>
+
+                <!-- Orders Section -->
+                <section id="orders" class="content-section">
+                    <div class="section-header">
+                        <h2>Order Management</h2>
+                        <div class="header-actions">
+                            <button class="btn-secondary" id="exportOrdersBtn">
+                                <i class="fas fa-download"></i>
+                                Export
+                            </button>
+                            <button class="btn-secondary" id="filterOrdersBtn">
+                                <i class="fas fa-filter"></i>
+                                Filter
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="orders-table-container">
+                        <table class="orders-table" id="ordersTable">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Products</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ordersTableBody">
+                                <!-- Will be populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Analytics Section -->
+                <section id="analytics" class="content-section">
+                    <div class="section-header">
+                        <h2>Analytics & Reports</h2>
+                        <div class="header-actions">
+                            <select class="date-range-select" id="dateRangeSelect">
+                                <option value="7">Last 7 days</option>
+                                <option value="30" selected>Last 30 days</option>
+                                <option value="90">Last 90 days</option>
+                                <option value="365">Last year</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="analytics-grid">
+                        <div class="analytics-card">
+                            <h3>Sales Overview</h3>
+                            <div class="chart-container" id="salesChart">
+                                <!-- Chart will be rendered here -->
+                            </div>
+                        </div>
+
+                        <div class="analytics-card">
+                            <h3>Top Products</h3>
+                            <div class="chart-container" id="productsChart">
+                                <!-- Chart will be rendered here -->
+                            </div>
+                        </div>
+
+                        <div class="analytics-card">
+                            <h3>Broker Performance</h3>
+                            <div class="chart-container" id="brokersChart">
+                                <!-- Chart will be rendered here -->
+                            </div>
+                        </div>
+
+                        <div class="analytics-card">
+                            <h3>Discount Usage</h3>
+                            <div class="chart-container" id="discountsChart">
+                                <!-- Chart will be rendered here -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings" class="content-section">
+                    <div class="section-header">
+                        <h2>System Settings</h2>
+                    </div>
+
+                    <div class="settings-grid">
+                        <div class="settings-card">
+                            <h3>General Settings</h3>
+                            <form class="settings-form" id="generalSettingsForm">
+                                <div class="form-group">
+                                    <label for="companyName">Company Name</label>
+                                    <input type="text" id="companyName" name="companyName" value="Eastleigh Turf Grass">
+                                </div>
+                                <div class="form-group">
+                                    <label for="whatsappNumber">WhatsApp Number</label>
+                                    <input type="tel" id="whatsappNumber" name="whatsappNumber" value="+254743375997">
+                                </div>
+                                <div class="form-group">
+                                    <label for="currency">Currency</label>
+                                    <select id="currency" name="currency">
+                                        <option value="KES" selected>Kenyan Shilling (KES)</option>
+                                        <option value="USD">US Dollar (USD)</option>
+                                        <option value="EUR">Euro (EUR)</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Security Settings</h3>
+                            <form class="settings-form" id="securitySettingsForm">
+                                <div class="form-group">
+                                    <label for="sessionTimeout">Session Timeout (minutes)</label>
+                                    <input type="number" id="sessionTimeout" name="sessionTimeout" value="30" min="5" max="120">
+                                </div>
+                                <div class="form-group">
+                                    <label for="maxLoginAttempts">Max Login Attempts</label>
+                                    <input type="number" id="maxLoginAttempts" name="maxLoginAttempts" value="5" min="3" max="10">
+                                </div>
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="twoFactorAuth" name="twoFactorAuth">
+                                        <span class="checkmark"></span>
+                                        Enable Two-Factor Authentication
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+    <div id="modalOverlay" class="modal-overlay"></div>
+
+    <!-- Discount Modal -->
+    <div id="discountModal" class="modal">
+        <div class="modal-header">
+            <h3 id="discountModalTitle">Add New Discount</h3>
+            <button class="modal-close" id="closeDiscountModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form id="discountForm" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="discountName">Discount Name</label>
+                        <input type="text" id="discountName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="discountType">Type</label>
+                        <select id="discountType" name="type" required>
+                            <option value="percentage">Percentage</option>
+                            <option value="fixed">Fixed Amount</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="discountValue">Value</label>
+                        <input type="number" id="discountValue" name="value" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="discountMinOrder">Minimum Order</label>
+                        <input type="number" id="discountMinOrder" name="minOrder" step="0.01" min="0">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="discountMaxDiscount">Max Discount</label>
+                        <input type="number" id="discountMaxDiscount" name="maxDiscount" step="0.01" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="discountActive">Status</label>
+                        <select id="discountActive" name="active">
+                            <option value="true">Active</option>
+                            <option value="false">Inactive</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="discountDescription">Description</label>
+                    <textarea id="discountDescription" name="description" rows="3"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="discountValidFrom">Valid From</label>
+                        <input type="datetime-local" id="discountValidFrom" name="validFrom">
+                    </div>
+                    <div class="form-group">
+                        <label for="discountValidTo">Valid To</label>
+                        <input type="datetime-local" id="discountValidTo" name="validTo">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn-secondary" id="cancelDiscountBtn">Cancel</button>
+            <button type="button" class="btn-primary" id="saveDiscountBtn">Save Discount</button>
+        </div>
+    </div>
+
+    <!-- Coupon Modal -->
+    <div id="couponModal" class="modal">
+        <div class="modal-header">
+            <h3 id="couponModalTitle">Add New Coupon</h3>
+            <button class="modal-close" id="closeCouponModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form id="couponForm" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="couponCode">Coupon Code</label>
+                        <input type="text" id="couponCode" name="code" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="couponType">Type</label>
+                        <select id="couponType" name="type" required>
+                            <option value="percentage">Percentage</option>
+                            <option value="fixed">Fixed Amount</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="couponValue">Value</label>
+                        <input type="number" id="couponValue" name="value" step="0.01" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="couponMinOrder">Minimum Order</label>
+                        <input type="number" id="couponMinOrder" name="minOrder" step="0.01" min="0">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="couponMaxDiscount">Max Discount</label>
+                        <input type="number" id="couponMaxDiscount" name="maxDiscount" step="0.01" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="couponUsageLimit">Usage Limit</label>
+                        <input type="number" id="couponUsageLimit" name="usageLimit" min="1">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="couponDescription">Description</label>
+                    <textarea id="couponDescription" name="description" rows="3"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="couponValidFrom">Valid From</label>
+                        <input type="datetime-local" id="couponValidFrom" name="validFrom">
+                    </div>
+                    <div class="form-group">
+                        <label for="couponValidTo">Valid To</label>
+                        <input type="datetime-local" id="couponValidTo" name="validTo">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn-secondary" id="cancelCouponBtn">Cancel</button>
+            <button type="button" class="btn-primary" id="saveCouponBtn">Save Coupon</button>
+        </div>
+    </div>
+
+    <!-- Broker Modal -->
+    <div id="brokerModal" class="modal">
+        <div class="modal-header">
+            <h3 id="brokerModalTitle">Add New Broker</h3>
+            <button class="modal-close" id="closeBrokerModal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form id="brokerForm" class="modal-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="brokerName">Full Name</label>
+                        <input type="text" id="brokerName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="brokerPhone">Phone Number</label>
+                        <input type="tel" id="brokerPhone" name="phone" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="brokerEmail">Email</label>
+                        <input type="email" id="brokerEmail" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="brokerRole">Role</label>
+                        <select id="brokerRole" name="role">
+                            <option value="broker">Broker</option>
+                            <option value="senior_broker">Senior Broker</option>
+                            <option value="manager">Manager</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="brokerPassword">Password</label>
+                        <input type="password" id="brokerPassword" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="brokerConfirmPassword">Confirm Password</label>
+                        <input type="password" id="brokerConfirmPassword" name="confirmPassword" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="brokerLocation">Location</label>
+                    <input type="text" id="brokerLocation" name="location">
+                </div>
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="brokerActive" name="active" checked>
+                        <span class="checkmark"></span>
+                        Active Account
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn-secondary" id="cancelBrokerBtn">Cancel</button>
+            <button type="button" class="btn-primary" id="saveBrokerBtn">Save Broker</button>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <!-- Single JavaScript entry point -->
+    
+</body>
+
+</html>

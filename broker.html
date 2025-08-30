@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broker Dashboard - Turf Grass Project</title>
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- CSS Files will be imported by JavaScript -->
+  <script type="module" crossorigin src="/assets/broker-f27f8508.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/toast-0b5c6fe0.js">
+  <link rel="modulepreload" crossorigin href="/assets/cart-4222b405.js">
+  <link rel="modulepreload" crossorigin href="/assets/cartIconPopUp-54af95f0.js">
+  <link rel="modulepreload" crossorigin href="/assets/toastService-c0f79566.js">
+</head>
+
+<body>
+    <header class="header" id="navbar">
+        <div class="container">
+            <a href="../index.html" class="logo" aria-label="Eastleigh Turf Grass">
+                <img src="/assets/mainLogo-731d0185.png" alt="Eastleigh Turf Grass Logo" />
+            </a>
+
+            <nav class="nav" aria-label="Primary">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../products.html" class="nav-link">Products</a>
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+            </nav>
+
+            <!-- Hamburger Menu Button (replaces logo on mobile) -->
+            <button class="hamburger-menu" id="hamburgerMenu" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="header-cta">
+                <a href="#" class="cart-btn" aria-label="Shopping Cart">
+                    <svg viewBox="0 0 640 640" class="cart-icon" aria-hidden="true">
+                        <path
+                            d="M24 48C10.7 48 0 58.7 0 72C0 85.3 10.7 96 24 96L69.3 96C73.2 96 76.5 98.8 77.2 102.6L129.3 388.9C135.5 423.1 165.3 448 200.1 448L456 448C469.3 448 480 437.3 480 424C480 410.7 469.3 400 456 400L200.1 400C188.5 400 178.6 391.7 176.5 380.3L171.4 352L475 352C505.8 352 532.2 330.1 537.9 299.8L568.9 133.9C572.6 114.2 557.5 96 537.4 96L124.7 96L124.3 94C119.5 67.4 96.3 48 69.2 48L24 48zM208 576C234.5 576 256 554.5 256 528C256 501.5 234.5 480 208 480C181.5 480 160 501.5 160 528C160 554.5 181.5 576 208 576zM432 576C458.5 576 480 554.5 480 528C480 501.5 458.5 480 432 480C405.5 480 384 501.5 384 528C384 554.5 405.5 576 432 576z" />
+                    </svg>
+                    <span id="cartCount" class="cart-count">0</span>
+                </a>
+                <a href="#" id="logoutBtn" class="broker-btn">Log Out</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../products.html" class="nav-link">Products</a>
+        <a href="../about.html" class="nav-link">About</a>
+        <a href="../contact.html" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Header Section -->
+        <header class="dashboard-header">
+            <div class="dashboard-title">
+                <div class="title-icon">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="title-text">
+                    <h1>Broker Dashboard</h1>
+                    <p>Manage orders, preorders, inquiries, and profile details</p>
+                </div>
+            </div>
+        </header>
+        <section class="summary-card">
+            <div class="summary-row">
+                <div class="summary-item">
+                    <span class="summary-label">Credit Limit</span>
+                    <span class="summary-value" id="credit-limit">KES 50,000</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Outstanding</span>
+                    <span class="summary-value outstanding" id="outstanding-credit">KES 12,000</span>
+                </div>
+            </div>
+            <div class="summary-row">
+                <div class="summary-item">
+                    <span class="summary-label">Amount Paid</span>
+                    <span class="summary-value" id="amount-paid">KES 38,000</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label">Last Payment</span>
+                    <span class="summary-value" id="last-payment">10 June, KES 5,000</span>
+                </div>
+            </div>
+            <button class="pay-balance-btn">Pay Outstanding Balance</button>
+        </section>
+
+        <!-- Navigation Tabs -->
+        <nav class="nav-tabs">
+            <button class="nav-tab active" data-tab="orders">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Orders</span>
+            </button>
+            <button class="nav-tab" data-tab="preorders">
+                <i class="fas fa-clock"></i>
+                <span>Preorders</span>
+            </button>
+            <button class="nav-tab" data-tab="inquiry">
+                <i class="fas fa-comments"></i>
+                <span>Inquiry</span>
+            </button>
+            <button class="nav-tab" data-tab="profile">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="dashboard-content">
+            <!-- Orders Tab Content -->
+            <div id="orders-content" class="tab-content active">
+                <h2><i class="fas fa-shopping-cart"></i> Regular Orders</h2>
+                <p class="order-description">Order items from available stock for immediate processing.</p>
+
+                <div class="order-table-container">
+                    <table class="order-table" id="orderTable">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Quantity (m²)</th>
+                                <th>Unit Price (KES)</th>
+                                <th>Total (KES)</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderTableBody">
+                            <!-- Dynamic order items will be injected here -->
+                        </tbody>
+                    </table>
+
+                    <div class="empty-state" id="emptyOrderState">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>No items added yet. Click 'Add Item' to start building your order.</p>
+                    </div>
+                </div>
+
+                <div class="order-summary">
+                    <div class="order-total">
+                        <strong>Total: KES <span id="orderTotal">0.00</span></strong>
+                    </div>
+                </div>
+
+                <!-- After the order table, before the Add Item/Submit Order buttons -->
+                <!-- Payment Summary Section with input -->
+                <div class="payment-summary-section">
+                    <div class="payment-summary-row">
+                        <label class="payment-label" for="amount-to-pay-input">Amount to Pay (KES):</label>
+                        <input type="text" inputmode="decimal" id="amount-to-pay-input" class="payment-input"
+                            placeholder="Enter amount to pay">
+                    </div>
+                    <div class="payment-summary-row">
+                        <span class="payment-label">Credit Balance (KES):</span>
+                        <span class="payment-value credit" id="credit-balance">0.00</span>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" id="addItemBtn">
+                        <i class="fas fa-plus"></i>
+                        Add Item
+                    </button>
+                    <button class="btn btn-primary" id="submitOrderBtn" disabled>
+                        Submit Order
+                    </button>
+                </div>
+            </div>
+
+            <!-- Preorders Tab Content -->
+            <div id="preorders-content" class="tab-content">
+                <h2><i class="fas fa-clock"></i> Preorders</h2>
+                <p class="preorder-description">Place preorders for upcoming stock arrivals and special items.</p>
+
+                <div class="preorder-table-container">
+                    <table class="preorder-table" id="preorderTable">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Quantity (m²)</th>
+                                <th>Unit Price (KES)</th>
+                                <th>Expected Date</th>
+                                <th>Special Notes</th>
+                                <th>Total (KES)</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="preorderTableBody">
+                            <!-- Dynamic preorder items will be injected here -->
+                        </tbody>
+                    </table>
+
+                    <div class="empty-state" id="emptyPreorderState">
+                        <i class="fas fa-clock"></i>
+                        <p>No preorder items added yet. Preorders are for special items not yet in stock.</p>
+                    </div>
+                </div>
+
+                <div class="preorder-summary">
+                    <div class="preorder-total">
+                        <strong>Total: KES <span id="preorderTotal">0.00</span></strong>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" id="addPreorderBtn">
+                        <i class="fas fa-plus"></i>
+                        Add Preorder
+                    </button>
+                    <button class="btn btn-primary" id="submitPreordersBtn" disabled>
+                        Submit Preorders
+                    </button>
+                </div>
+            </div>
+
+            <!-- Inquiry Tab Content -->
+            <div id="inquiry-content" class="tab-content">
+                <h2><i class="fas fa-comments"></i> Price Inquiries</h2>
+                <p class="inquiry-description">Submit price inquiries for bulk orders or special pricing.</p>
+
+                <div class="inquiry-table-container">
+                    <table class="inquiry-table" id="inquiryTable">
+                        <thead>
+                            <tr>
+                                <th>Product Name</th>
+                                <th>Original Price (KES)</th>
+                                <th>Your Bargain Price (KES)</th>
+                                <th>Difference</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inquiryTableBody">
+                            <!-- Dynamic inquiry items will be injected here -->
+                        </tbody>
+                    </table>
+
+                    <div class="empty-state" id="emptyInquiryState">
+                        <i class="fas fa-comments"></i>
+                        <p>No inquiries added yet. Click 'Add Inquiry' to start.</p>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" id="addInquiryBtn">
+                        <i class="fas fa-plus"></i>
+                        Add Inquiry
+                    </button>
+                    <button class="btn btn-primary" id="submitInquiriesBtn" disabled>
+                        Submit All Inquiries
+                    </button>
+                </div>
+            </div>
+
+            <!-- Profile Tab Content -->
+            <div id="profile-content" class="tab-content">
+                <h2><i class="fas fa-user"></i> Profile Settings</h2>
+                <p>Manage your broker account and preferences.</p>
+                <div class="profile-form">
+                    <div class="form-group">
+                        <label for="broker-name">Full Name</label>
+                        <input type="text" id="broker-name" value="Broker User" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="broker-email">Email</label>
+                        <input type="email" id="broker-email" value="broker@eastleighturf.com" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="broker-role">Role</label>
+                        <input type="text" id="broker-role" value="Authorized Broker" readonly>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-edit"></i>
+                            Edit Profile
+                        </button>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <div class="toast-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="toast-message"></div>
+            <button class="toast-close" onclick="hideToast()" aria-label="Close notification">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <div id="cartMount"></div>
+
+    <!-- Number Formatter Utility -->
+    
+
+    <!-- Single JavaScript entry point -->
+    
+
+</body>
+
+</html>

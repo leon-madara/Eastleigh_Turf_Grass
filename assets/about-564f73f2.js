@@ -1,0 +1,2 @@
+import"./toast-0b5c6fe0.js";import"./mobile-scroll-animations-8f0a4808.js";/* empty css              */import"./cart-4222b405.js";import"./cartIconPopUp-54af95f0.js";import"./BrokerLoginModal-594b1f0b.js";import"./toastService-c0f79566.js";document.addEventListener("DOMContentLoaded",()=>{const t=document.getElementById("year");t&&(t.textContent=new Date().getFullYear())});
+//# sourceMappingURL=about-564f73f2.js.map
