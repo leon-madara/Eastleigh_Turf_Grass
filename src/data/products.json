@@ -1,0 +1,115 @@
+[{
+        "id": "turf-15mm",
+        "name": "Premium Turf 15mm",
+        "thickness": "15mm",
+        "price": 1000,
+        "image": "/src/assets/images/products/EnduraTurf.png",
+        "useCases": [
+            "Residential",
+            "Light Traffic",
+            "Decorative"
+        ],
+        "features": [
+            "Natural appearance",
+            "UV resistant",
+            "Easy maintenance",
+            "Drainage system",
+            "Soft texture"
+        ]
+    },
+    {
+        "id": "turf-20mm",
+        "name": "Sports Turf 20mm",
+        "thickness": "20mm",
+        "price": 1100,
+        "image": "/src/assets/images/products/FlexTurf.png",
+        "useCases": [
+            "Sports",
+            "Playgrounds",
+            "Schools"
+        ],
+        "features": [
+            "Enhanced durability",
+            "Superior bounce",
+            "Weather resistant",
+            "High traffic tolerance",
+            "Professional grade"
+        ]
+    },
+    {
+        "id": "turf-30mm",
+        "name": "Luxury Turf 30mm",
+        "thickness": "30mm",
+        "price": 1300,
+        "image": "/src/assets/images/products/VelvetGreen.png",
+        "useCases": [
+            "Premium Residential",
+            "Commercial",
+            "Hospitality"
+        ],
+        "features": [
+            "Premium quality",
+            "Realistic feel",
+            "Long-lasting",
+            "Excellent drainage",
+            "Fade resistant"
+        ]
+    },
+    {
+        "id": "turf-35mm",
+        "name": "Elite Turf 35mm",
+        "thickness": "35mm",
+        "price": 1500,
+        "image": "/src/assets/images/products/UltraTurf.png",
+        "useCases": [
+            "High-end Commercial",
+            "Sports Facilities",
+            "Luxury Homes"
+        ],
+        "features": [
+            "Maximum comfort",
+            "Professional grade",
+            "Heavy duty",
+            "Advanced technology",
+            "Superior aesthetics"
+        ]
+    },
+    {
+        "id": "turf-40mm",
+        "name": "Professional Grade 40mm",
+        "thickness": "40mm",
+        "price": 1600,
+        "image": "/src/assets/images/products/ProfessionalGrade.png",
+        "useCases": [
+            "Professional Sports",
+            "Commercial",
+            "Premium"
+        ],
+        "features": [
+            "Professional grade",
+            "Maximum durability",
+            "Superior performance",
+            "Weather proof",
+            "Championship quality"
+        ]
+    },
+    {
+        "id": "turf-45mm",
+        "name": "Championship Turf 45mm",
+        "thickness": "45mm",
+        "price": 1800,
+        "image": "/src/assets/images/products/heroGreatIdea.png",
+        "useCases": [
+            "Championship",
+            "Premium Sports",
+            "Elite Facilities"
+        ],
+        "features": [
+            "Championship quality",
+            "Ultimate performance",
+            "Elite grade",
+            "Professional standards",
+            "Premium durability"
+        ]
+    }
+]

@@ -1,0 +1,18 @@
+{
+    "name": "turf-grass-project",
+    "private": true,
+    "version": "0.0.1",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "lint": "eslint . --ext .js",
+        "format": "prettier -w ."
+    },
+    "devDependencies": {
+        "vite": "^4.4.0",
+        "eslint": "^8.44.0",
+        "prettier": "^2.8.8"
+    }
+}

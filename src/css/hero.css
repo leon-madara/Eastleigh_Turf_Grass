@@ -1,0 +1,472 @@
+/* =========================================
+   HERO (before/after) — self-contained
+========================================= */
+
+:root {
+    /* Keep in sync with your header height */
+    --header-h: 4rem;
+
+    /* Divider visuals */
+    --ba-divider-w: 4px;
+    --ba-divider-color: rgba(255, 255, 255, 0.5);
+    --ba-divider-shadow: rgba(0, 0, 0, .28);
+}
+
+/* Wrapper: extend by header height so no gap after overlay */
+.hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* -------- Before/After stage -------- */
+.ba {
+    --pos: 50%;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Images fill full viewport + header height, pulled up under header */
+.ba-img {
+    position: absolute;
+    top: calc(-1 * var(--header-h));
+    left: 0;
+    width: 100%;
+    height: calc(100vh + var(--header-h));
+    object-fit: cover;
+    will-change: clip-path;
+    pointer-events: none;
+    /* REMOVED: transition: clip-path 0.1s ease-out; */
+}
+
+.ba-before {
+    z-index: 1;
+}
+
+.ba-after {
+    z-index: 2;
+    clip-path: inset(0 50% 0 0);
+}
+
+/* Divider / draggable handle (if you wire JS) */
+.ba-handle {
+    position: absolute;
+    top: calc(-1 * var(--header-h));
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--ba-divider-w);
+    height: calc(100vh + var(--header-h));
+    background: var(--ba-divider-color);
+    box-shadow: 0 0 0 1px var(--ba-divider-shadow);
+    z-index: 30;
+    cursor: col-resize;
+    pointer-events: auto;
+    /* REMOVED: transition: left 0.1s ease-out, top 0.1s ease-out; */
+}
+
+.ba-handle.dragging {
+    cursor: grabbing;
+    /* Add visual feedback for dragging state */
+    background: #287a4b97;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.ba-grip {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: var(--ba-divider-color);
+    box-shadow: 0 0 0 1px var(--ba-divider-shadow);
+    opacity: 0;
+    transition: opacity .15s linear;
+}
+
+.ba-handle:hover .ba-grip,
+.ba-handle:active .ba-grip,
+.ba-handle.dragging .ba-grip {
+    opacity: 1;
+}
+
+/* -------- Chair: above the divider -------- */
+.ba-chair {
+    position: absolute;
+    left: 50%;
+    top: 73vh;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    height: auto;
+    object-fit: contain;
+    z-index: 40;
+    pointer-events: none;
+    filter: drop-shadow(0 8px 26px rgba(0, 0, 0, .3));
+}
+
+/* -------- Content layer (titles/buttons/stats) -------- */
+.hero-content {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    pointer-events: none;
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+.hero-inner {
+    position: relative;
+    height: 100%;
+    width: min(64rem, 100%);
+    margin-inline: auto;
+    display: grid;
+    place-items: center;
+    padding-top: 0;
+}
+
+/* Headline */
+.hero-title {
+    margin: 0;
+    color: hsl(68, 100%, 55%);
+    font-size: clamp(2.5rem, 6vw, 5.5rem);
+    line-height: 1.05;
+    text-wrap: balance;
+    text-shadow: 0 1px 12px rgba(0, 0, 0, .35);
+    margin-bottom: 0.5rem;
+    position: absolute;
+    left: 50%;
+    top: 20vh;
+    transform: translateX(-50%);
+    z-index: 25;
+}
+
+.hero-title-accent {
+    color: hsl(153, 94%, 49%);
+    display: block;
+    margin-top: .5rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    opacity: .9;
+}
+
+/* Buttons rail - positioned at 47vh */
+.hero-buttons {
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    pointer-events: auto;
+    position: absolute;
+    left: 50%;
+    top: 47vh;
+    transform: translateX(-50%);
+    z-index: 25;
+}
+
+/* Stats at bottom center (optional) */
+.hero-stats {
+    position: absolute;
+    left: 50%;
+    bottom: 2rem;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1.25rem;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.hero-stats .stat {
+    min-width: 7rem;
+    text-align: center;
+    pointer-events: auto;
+}
+
+.hero-stats .stat-number {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #f1e6c9;
+}
+
+/* -------- Mobile Responsive Styles -------- */
+@media (max-width: 768px) {
+
+    /* Mobile vertical slider layout */
+    .mobile-slider .ba-handle {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100vh + var(--header-h));
+        height: var(--ba-divider-w);
+        cursor: row-resize;
+    }
+
+    /* Ensure mobile styles don't override JS positioning */
+    .mobile-slider .ba-handle {
+        left: auto !important;
+        top: auto !important;
+    }
+
+    .mobile-slider .ba-grip {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Mobile chair positioning */
+    .mobile-slider .ba-chair {
+        left: 50%;
+        top: 50%;
+        width: 280px;
+    }
+
+    /* Mobile content adjustments */
+    .mobile-slider .hero-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+        margin-bottom: 0.3rem;
+        top: 20vh;
+    }
+
+    .mobile-slider .hero-title-accent {
+        font-size: clamp(1rem, 4vw, 1.3rem);
+    }
+
+    /* Mobile button positioning */
+    .mobile-slider .hero-buttons {
+        top: 47vh;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .mobile-slider .hero-buttons .btn {
+        min-width: 200px;
+        padding: 0.75rem 1.5rem;
+    }
+
+    /* Hide stats on mobile */
+    .mobile-slider .hero-stats {
+        display: none;
+    }
+}
+
+/* -------- Desktop Responsive -------- */
+@media (min-width: 769px) {
+    .desktop-slider .ba-handle {
+        left: 50%;
+        top: calc(-1 * var(--header-h));
+        transform: translateX(-50%);
+        width: var(--ba-divider-w);
+        height: calc(100vh + var(--header-h));
+        cursor: col-resize;
+    }
+
+    /* Ensure desktop styles don't override JS positioning */
+    .desktop-slider .ba-handle {
+        left: auto !important;
+        top: auto !important;
+    }
+
+    .desktop-slider .ba-chair {
+        left: 50%;
+        top: 73vh;
+        width: 350px;
+    }
+
+    .desktop-slider .hero-buttons {
+        top: 47vh;
+        flex-direction: row;
+    }
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 900px) {
+    .ba-chair {
+        height: 320px;
+        top: 74vh;
+    }
+}
+
+@media (max-width: 680px) {
+    .ba-chair {
+        height: 240px;
+        top: 76vh;
+    }
+
+    .hero-stats {
+        display: none;
+    }
+}
+
+/* =========================================
+   SHOP NOW TRANSITION ANIMATIONS
+========================================= */
+
+/* Animation container for transition */
+.hero-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.hero-transition.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+/* Transition images container */
+.transition-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.transition-before,
+.transition-after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-before {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+}
+
+.transition-after {
+    opacity: 0;
+    transform: scale(1) rotate(0deg);
+}
+
+/* Animation states */
+.hero-transition.step-1 .transition-before {
+    transform: scale(1.2) rotate(0deg);
+}
+
+.hero-transition.step-2 .transition-before {
+    transform: scale(1.2) rotate(-45deg);
+    opacity: 0.5;
+}
+
+.hero-transition.step-2 .transition-after {
+    opacity: 0.5;
+    transform: scale(1.2) rotate(-45deg);
+}
+
+.hero-transition.step-3 .transition-before {
+    opacity: 0;
+    transform: scale(1.2) rotate(-90deg);
+}
+
+.hero-transition.step-3 .transition-after {
+    opacity: 1;
+    transform: scale(1.2) rotate(-90deg);
+}
+
+.hero-transition.step-4 .transition-after {
+    transform: scale(1) rotate(-180deg);
+}
+
+/* Transition divider */
+.transition-divider {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    transform: translateX(-50%);
+    transition: left 1s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+}
+
+.hero-transition.step-1 .transition-divider {
+    left: 0%;
+}
+
+.hero-transition.step-4 .transition-divider {
+    left: 100%;
+}
+
+/* Loading overlay for products page */
+.products-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: hsl(48, 22%, 95%);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.products-loading.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.products-loading .loading-content {
+    text-align: center;
+    color: #2d3748;
+}
+
+.products-loading .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #e2e8f0;
+    border-top: 3px solid #16a34a;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Hide content during transition */
+.hero.transitioning .hero-content {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hero.transitioning .ba-chair {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}

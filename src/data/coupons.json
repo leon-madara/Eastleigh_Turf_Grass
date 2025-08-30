@@ -1,0 +1,40 @@
+{
+    "coupons": [
+        {
+            "code": "WELCOME10",
+            "type": "percentage",
+            "value": 10,
+            "minOrder": 5000,
+            "maxDiscount": 2000,
+            "validFrom": "2024-01-01",
+            "validTo": "2024-12-31",
+            "usageLimit": 100,
+            "usedCount": 0,
+            "description": "10% off for new customers"
+        },
+        {
+            "code": "SAVE15",
+            "type": "percentage",
+            "value": 15,
+            "minOrder": 10000,
+            "maxDiscount": 5000,
+            "validFrom": "2024-01-01",
+            "validTo": "2024-12-31",
+            "usageLimit": 50,
+            "usedCount": 0,
+            "description": "15% off on orders above KES 10,000"
+        },
+        {
+            "code": "FLAT500",
+            "type": "fixed",
+            "value": 500,
+            "minOrder": 2000,
+            "maxDiscount": 500,
+            "validFrom": "2024-01-01",
+            "validTo": "2024-12-31",
+            "usageLimit": 200,
+            "usedCount": 0,
+            "description": "KES 500 off any order above KES 2,000"
+        }
+    ]
+}

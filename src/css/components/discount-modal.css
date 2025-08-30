@@ -1,0 +1,305 @@
+/* Discount Modal Styles */
+.discount-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.discount-modal.active {
+    display: flex;
+}
+
+.discount-modal .modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+}
+
+.discount-modal .modal-content {
+    position: relative;
+    background: white;
+    border-radius: 16px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.discount-modal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 1.5rem 1rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.discount-modal .modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.discount-modal .modal-close {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.discount-modal .modal-close:hover {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.discount-modal .modal-body {
+    padding: 1.5rem;
+}
+
+.discount-modal .modal-footer {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 1.5rem 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* Discount Offer Styles */
+.discount-offer {
+    text-align: center;
+}
+
+.discount-badge {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+.discount-percentage {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.discount-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.discount-offer h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.discount-description {
+    margin: 0 0 1.5rem;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.discount-details {
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.detail-row:last-child {
+    margin-bottom: 0;
+    padding-top: 0.75rem;
+    border-top: 1px solid #e5e7eb;
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+.detail-row.total {
+    color: #059669;
+}
+
+.amount,
+.savings,
+.final-amount {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.savings {
+    color: #dc2626;
+}
+
+.final-amount {
+    color: #059669;
+}
+
+.discount-terms {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+}
+
+.discount-terms small {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+/* No Discount Message */
+.no-discount {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.no-discount-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.no-discount h3 {
+    margin: 0 0 1rem;
+    color: #1f2937;
+}
+
+.no-discount p {
+    margin: 0 0 0.5rem;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+/* Success/Error Messages */
+.success-message,
+.error-message {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.success-icon,
+.error-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.success-message h3 {
+    color: #059669;
+    margin: 0 0 1rem;
+}
+
+.error-message h3 {
+    color: #dc2626;
+    margin: 0 0 1rem;
+}
+
+.success-message p,
+.error-message p {
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+/* Button Styles */
+.btn-primary,
+.btn-secondary {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    flex: 1;
+}
+
+.btn-primary {
+    background: #059669;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #047857;
+}
+
+.btn-primary:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+}
+
+.btn-secondary {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.btn-secondary:hover {
+    background: #e5e7eb;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .discount-modal .modal-content {
+        margin: 1rem;
+        max-height: calc(100vh - 2rem);
+    }
+
+    .discount-modal .modal-header {
+        padding: 1rem 1rem 0.75rem;
+    }
+
+    .discount-modal .modal-body {
+        padding: 1rem;
+    }
+
+    .discount-modal .modal-footer {
+        padding: 0.75rem 1rem 1rem;
+        flex-direction: column;
+    }
+
+    .discount-badge {
+        padding: 0.75rem 1rem;
+    }
+
+    .discount-percentage {
+        font-size: 1.5rem;
+    }
+}

@@ -1,0 +1,41 @@
+<!-- Coupon modal partial -->
+<div id="couponModal" class="modal coupon-modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>🎫 Enter Coupon Code</h2>
+            <button class="modal-close" id="closeCouponModal" aria-label="Close coupon modal">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <div class="coupon-input-section">
+                <label for="couponCodeInput">Coupon Code</label>
+                <div class="input-group">
+                    <input type="text" id="couponCodeInput" placeholder="Enter your coupon code" maxlength="20" autocomplete="off" />
+                    <button class="btn-primary" id="applyCouponBtn">Apply</button>
+                </div>
+                <div id="couponMessage" class="coupon-message"></div>
+            </div>
+
+            <div class="coupon-help">
+                <h4>💡 Have a coupon?</h4>
+                <p>Enter your coupon code above to get instant savings on your order.</p>
+
+                <div class="popular-codes">
+                    <h5>📋 Popular Codes:</h5>
+                    <div class="code-suggestions">
+                        <span class="code-suggestion">WELCOME10</span>
+                        <span class="code-suggestion">SAVE15</span>
+                        <span class="code-suggestion">FLAT500</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-secondary" id="cancelCouponBtn">Cancel</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,322 @@
+/* ===========================
+   TOKENS
+=========================== */
+:root {
+    --header-h: 4rem;
+    /* keep in sync with header height */
+    --divider-w: 4px;
+    --handle-color: rgba(255, 255, 255, 0.95);
+    --handle-shadow: rgba(0, 0, 0, 0.25);
+}
+
+/* ===========================
+   RESET
+=========================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+/* ===========================
+   HERO WRAPPER
+=========================== */
+.hero {
+    position: relative;
+    min-height: calc(100svh + var(--header-h));
+    background: rgb(1, 59, 1);
+    overflow: hidden;
+}
+
+/* ===========================
+   BEFORE / AFTER SLIDER STAGE
+=========================== */
+.ba {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    /* below handle & chair, above images */
+    pointer-events: auto;
+    cursor: col-resize;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* — Images (stacked full viewport minus header) */
+.ba-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: calc(100vh - var(--header-h));
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.ba-before {
+    z-index: 1;
+}
+
+.ba-after {
+    z-index: 2;
+    clip-path: inset(0 50% 0 0);
+    /* 50/50 start */
+    background: none;
+    transition: none;
+    /* no lag while dragging */
+}
+
+.ba-range {
+    display: none;
+    /* hides the slider but keeps JS functionality */
+}
+
+/* — Divider / handle */
+.ba-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--divider-w);
+    background: var(--handle-color);
+    box-shadow: 0 0 0 1px var(--handle-shadow);
+    z-index: 40;
+    /* below chair, above images & content */
+    cursor: col-resize;
+    pointer-events: auto;
+}
+
+.ba-grip {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: var(--handle-color);
+    box-shadow: 0 0 0 1px var(--handle-shadow);
+    opacity: 0;
+    /* show only on hover/drag */
+    transition: opacity .12s linear;
+}
+
+.ba-handle.is-hovered .ba-grip,
+.ba-handle.is-active .ba-grip {
+    opacity: 1;
+}
+
+/* ===========================
+   FLOATING REFERENCE OBJECT (CHAIR)
+   - Sits ABOVE the divider to give static reference
+   - 400px tall, positioned around 80vh (10% above stats at 90vh)
+=========================== */
+.ba-chair {
+    position: absolute;
+    top: 72vh;
+    /* between content and stats */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;
+    /* requested height */
+    height: auto;
+    object-fit: contain;
+    z-index: 60;
+    /* above divider */
+    pointer-events: none;
+    /* never block dragging */
+    filter: drop-shadow(0 6px 24px rgba(0, 0, 0, .25));
+}
+
+/* ===========================
+   HERO CONTENT LAYER
+=========================== */
+.hero-content {
+    position: absolute;
+    inset: 0;
+    /* % offsets relative to hero */
+    z-index: 20;
+    /* below divider, below chair */
+    pointer-events: none;
+    /* allow slider drag everywhere */
+    text-align: center;
+    color: #fff;
+}
+
+.hero-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 64rem;
+    margin: 0 auto;
+}
+
+/* — Title (20% down) and accent (2rem below) */
+.hero-title {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    white-space: nowrap;
+    color: hsl(78, 91%, 57%);
+}
+
+.hero-title-accent {
+    position: static;
+    display: block;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    /* background: var(--gradient-accent, linear-gradient(135deg, #39a, #fc6));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; */
+    color: hsl(77, 50%, 78%);
+}
+
+/* — Make only interactive bits clickable */
+.hero-content .btn,
+.hero-content a,
+.hero-content input,
+.hero-content select {
+    pointer-events: auto;
+}
+
+/* ===========================
+   HERO BUTTONS (40vh rail, flanking divider by 2rem)
+=========================== */
+/* HERO BUTTONS (40–50vh rail, centered) */
+.hero-buttons {
+    position: absolute;
+    top: 45vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    pointer-events: auto;
+    z-index: 30;
+}
+
+.hero-buttons .btn {
+    padding: 1rem 1.2rem;
+    font-size: 1rem;
+    line-height: 1.2;
+    pointer-events: auto;
+}
+
+/* remove the per-button absolute positioning */
+.hero-buttons .btn:first-child,
+.hero-buttons .btn:last-child {
+    position: static;
+    right: auto;
+    left: auto;
+    font-size: 1rem;
+    /* keep your sizing if you want it */
+}
+
+.center-spacer {
+    display: none;
+}
+
+/* ===========================
+   HERO STATS (bottom rail ~90vh)
+=========================== */
+.hero-stats {
+    position: absolute;
+    top: 95vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    pointer-events: none;
+    z-index: 20;
+}
+
+.hero-stats .stat {
+    text-align: center;
+    min-width: 8rem;
+}
+
+.hero-stats .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--pearl, #f1e6c9);
+    margin-bottom: .25rem;
+}
+
+.hero-stats .stat-label {
+    font-size: .9rem;
+    color: #fff;
+    opacity: .9;
+}
+
+/* ===========================
+   SCROLL INDICATOR (optional)
+=========================== */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 25;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 4.5rem;
+    }
+
+    .hero-title-accent {
+        font-size: 2.25rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-title {
+        font-size: 5.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-buttons {
+        position: static;
+        transform: none;
+        width: auto;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .hero-buttons .btn:first-child,
+    .hero-buttons .btn:last-child {
+        position: static;
+    }
+
+    .ba-chair {
+        height: 260px;
+        top: 78vh;
+    }
+
+    .hero-stats {
+        top: 88vh;
+        gap: 1rem;
+    }
+}

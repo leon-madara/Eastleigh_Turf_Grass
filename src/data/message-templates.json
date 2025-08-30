@@ -1,0 +1,32 @@
+{
+    "templates": {
+        "detailed": {
+            "name": "Detailed Order",
+            "description": "Comprehensive order message with all details",
+            "template": "🏠 *{businessName} - New Order*\n\n👤 *Customer Details:*\nName: {customerName}\nPhone: {customerPhone}\nLocation: {customerLocation}\n\n📦 *Order Items:*\n{orderItems}\n\n📊 *Order Summary:*\nTotal Area: {totalArea}\nSubtotal: {subtotal}\n{discountInfo}*Final Total: {finalTotal}*\n\n📅 Order Date: {orderDate}\n🕒 Order Time: {orderTime}\n\nPlease confirm this order and provide delivery details. Thank you! 🙏"
+        },
+        "simple": {
+            "name": "Simple Order",
+            "description": "Brief order message for quick communication",
+            "template": "🏠 *{businessName}*\n\nNew order from {customerName}\nPhone: {customerPhone}\nLocation: {customerLocation}\n\nItems:\n{orderItems}\n\nTotal: {finalTotal}"
+        },
+        "urgent": {
+            "name": "Urgent Order",
+            "description": "Urgent order message with priority indicators",
+            "template": "🚨 *URGENT ORDER* 🚨\n\n🏠 *{businessName} - New Order*\n\n👤 *Customer Details:*\nName: {customerName}\nPhone: {customerPhone}\nLocation: {customerLocation}\n\n📦 *Order Items:*\n{orderItems}\n\n📊 *Order Summary:*\nTotal Area: {totalArea}\nSubtotal: {subtotal}\n{discountInfo}*Final Total: {finalTotal}*\n\n📅 Order Date: {orderDate}\n🕒 Order Time: {orderTime}\n\n⚠️ URGENT: Please prioritize this order and contact customer immediately! 🙏"
+        }
+    },
+    "placeholders": {
+        "businessName": "Eastleigh Turf Grass",
+        "customerName": "Customer's full name",
+        "customerPhone": "Customer's phone number",
+        "customerLocation": "Customer's location",
+        "orderItems": "List of ordered items with details",
+        "totalArea": "Total area in square meters",
+        "subtotal": "Subtotal amount",
+        "discountInfo": "Discount information if applicable",
+        "finalTotal": "Final total amount",
+        "orderDate": "Current date",
+        "orderTime": "Current time"
+    }
+}

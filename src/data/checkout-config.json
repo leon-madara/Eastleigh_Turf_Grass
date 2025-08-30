@@ -1,0 +1,30 @@
+{
+    "business": {
+        "name": "Eastleigh Turf Grass",
+        "phone": "254743375997",
+        "email": "info@eastleighturfgrass.com",
+        "address": "Eastleigh, Nairobi, Kenya"
+    },
+    "checkout": {
+        "enableLocationDetection": true,
+        "enablePhoneDetection": false,
+        "autoSaveCustomerData": true,
+        "defaultCountryCode": "+254",
+        "currency": "KES",
+        "whatsappMessageTemplate": "detailed"
+    },
+    "validation": {
+        "minNameLength": 2,
+        "maxNameLength": 50,
+        "minPhoneLength": 9,
+        "maxPhoneLength": 15,
+        "minLocationLength": 3,
+        "maxLocationLength": 100
+    },
+    "ui": {
+        "enableAnimations": true,
+        "enableKeyboardNavigation": true,
+        "enableAutoFocus": true,
+        "stepIndicatorStyle": "dots"
+    }
+}
