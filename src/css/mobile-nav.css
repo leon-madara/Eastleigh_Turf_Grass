@@ -29,7 +29,7 @@
     backdrop-filter: blur(var(--mobile-nav-blur));
     -webkit-backdrop-filter: blur(var(--mobile-nav-blur));
     z-index: 999;
-    display: flex;
+    display: none; /* Hidden by default on desktop */
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -37,9 +37,18 @@
     transition: transform var(--mobile-nav-transition);
 }
 
-/* Active State */
-.mobile-nav.active {
-    transform: translateX(0);
+/* Show mobile nav only on mobile devices */
+@media (max-width: 768px) {
+    .mobile-nav {
+        display: flex;
+    }
+}
+
+/* Active State - only applies on mobile */
+@media (max-width: 768px) {
+    .mobile-nav.active {
+        transform: translateX(0);
+    }
 }
 
 /* =========================================
@@ -120,16 +129,18 @@
    PERFORMANCE OPTIMIZATIONS
    ========================================= */
 
-/* Hardware Acceleration */
-.mobile-nav {
-    will-change: transform;
-    -webkit-transform: translateX(-100%);
-    transform: translateX(-100%);
-}
+/* Hardware Acceleration - only on mobile */
+@media (max-width: 768px) {
+    .mobile-nav {
+        will-change: transform;
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
 
-.mobile-nav.active {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
+    .mobile-nav.active {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
 }
 
 /* Smooth Animations */
