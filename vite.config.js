@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import { fileURLToPath, URL } from "node:url";
 
 export default defineConfig({
+    base: '/Eastleigh_Turf_Grass/',
     server: { port: 5173, strictPort: true },
     preview: { port: 5174, strictPort: true },
     resolve: {
