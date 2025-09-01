@@ -7,7 +7,10 @@
     <title>Admin Dashboard - Eastleigh Turf Grass</title>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- CSS Files will be imported by JavaScript -->
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="./src/css/base.css">
+    <link rel="stylesheet" href="./src/css/layout.css">
+    <link rel="stylesheet" href="./src/css/admin.css">
 </head>
 
 <body>
@@ -350,11 +353,13 @@
                             <form class="settings-form" id="securitySettingsForm">
                                 <div class="form-group">
                                     <label for="sessionTimeout">Session Timeout (minutes)</label>
-                                    <input type="number" id="sessionTimeout" name="sessionTimeout" value="30" min="5" max="120">
+                                    <input type="number" id="sessionTimeout" name="sessionTimeout" value="30" min="5"
+                                        max="120">
                                 </div>
                                 <div class="form-group">
                                     <label for="maxLoginAttempts">Max Login Attempts</label>
-                                    <input type="number" id="maxLoginAttempts" name="maxLoginAttempts" value="5" min="3" max="10">
+                                    <input type="number" id="maxLoginAttempts" name="maxLoginAttempts" value="5" min="3"
+                                        max="10">
                                 </div>
                                 <div class="form-group checkbox-group">
                                     <label class="checkbox-label">
@@ -575,7 +580,7 @@
     <div id="toastContainer" class="toast-container"></div>
 
     <!-- Single JavaScript entry point -->
-    <script type="module" src="/src/pages/products/main.js"></script>
+    <script type="module" src="./src/pages/products/main.js"></script>
 </body>
 
 </html>
