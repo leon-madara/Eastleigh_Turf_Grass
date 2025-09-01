@@ -1,2 +1,0 @@
-import"./toast.0b5c6fe0.js";import"./mobile-scroll-animations.8bb896d4.js";/* empty css              *//* empty css                 */import"./cart.437f89c5.js";import"./cartIconPopUp.54af95f0.js";document.addEventListener("DOMContentLoaded",()=>{const t=document.getElementById("year");t&&(t.textContent=new Date().getFullYear())});document.addEventListener("DOMContentLoaded",()=>{});
-//# sourceMappingURL=admin.5afb1dd3.js.map
